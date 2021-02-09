@@ -5,10 +5,324 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Web shop for buying frisbees" />
         <meta name="keywords" content="sport, frisbee" />
-        <title>Grabsbee - Web Store</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+        <link href="./style.css" rel="stylesheet" type="text/css" />
+        <title>Grabsbee | Subcategory</title>
     </head>
+
     <body>
-        <!-- include header -->
+        <header>
+            <a href="./index.html">Grabsbee</a>
+            <ul>
+                <li>
+                    <button>Search</button>
+                    <div>
+                        <form>
+                            <fieldset>
+                                <legend>Grabsbee search form</legend>
+                                <label for="search"></label>
+                                <input
+                                    name="search"
+                                    type="text"
+                                    placeholder="Enter here your search term"
+                                    aria-label="Search through site content"
+                                />
+                                <button>Search it</button>
+                            </fieldset>
+                        </form>
+                        <button>Close</button>
+                    </div>
+                </li>
+
+                <li>
+                    <button>CartTrigger</button>
+                    <section>
+                        <h2>Cart</h2>
+                        <p>2 items in cart</p>
+                        <ul>
+                            <li>
+                                <div>
+                                    <img src="" alt="" />
+                                </div>
+                                <div>
+                                    <h3>
+                                        <a href="#">Cart item name 1</a>
+                                    </h3>
+                                    <dl>
+                                        <dt>Color</dt>
+                                        <dd>Black</dd>
+                                        <dt>Price</dt>
+                                        <dd>10$</dd>
+                                        <dt>Qty</dt>
+                                        <dd>
+                                            <form>
+                                                <fieldset>
+                                                    <legend>Item qty control</legend>
+                                                    <label for="qty">Qty:</label>
+                                                    <input name="qty" type="number" />
+                                                </fieldset>
+                                            </form>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div>
+                                    <button>Edit</button>
+                                    <button>Trash</button>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div>
+                                    <img src="" alt="" />
+                                </div>
+                                <div>
+                                    <h3>
+                                        <a href="#">Cart item name 2</a>
+                                    </h3>
+                                    <dl>
+                                        <dt>Color</dt>
+                                        <dd>Black</dd>
+                                        <dt>Price</dt>
+                                        <dd>15$</dd>
+                                        <dt>Qty</dt>
+                                        <dd>
+                                            <form>
+                                                <fieldset>
+                                                    <legend>Item qty control</legend>
+                                                    <label for="qty"></label>
+                                                    <input name="qty" type="number" />
+                                                </fieldset>
+                                            </form>
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div>
+                                    <button>Edit</button>
+                                    <button>Trash</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <table>
+                            <caption>
+                                Your cart totals table
+                            </caption>
+                            <tbody>
+                                <tr>
+                                    <th>Subtotal</th>
+                                    <td>$$</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <a href="#" title="Back to Cart Page">View and edit cart</a>
+                            <button>Proceed to checkout</button>
+                        </div>
+
+                        <div>
+                            <strong>You have no items in your shopping cart</strong>
+                        </div>
+                    </section>
+                </li>
+
+                <li>
+                    <button>Navigation Trigger</button>
+                    <nav>
+                        <h2>Menu</h2>
+                        <ul>
+                            <li>
+                                <h3>Frisbees</h3>
+                                <div>
+                                    <h4>Frisbees Type 1</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Frisbee Type 1 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Frisbee Type 1 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Frisbee Type 1 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Frisbees Type 2</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Frisbee Type 2 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Frisbee Type 2 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Frisbee Type 2 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Contact Us</h4>
+                                    <ul>
+                                        <li>
+                                            <address>Trg Slobode 6</address>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+385991231234">+385 99 123 1234</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h3>Gear</h3>
+                                <div>
+                                    <h4>Gear Type 1</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Gear Type 1 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gear Type 1 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gear Type 1 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Gear Type 2</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Gear Type 2 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gear Type 2 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gear Type 2 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Contact Us</h4>
+                                    <ul>
+                                        <li>
+                                            <address>Trg Slobode 6</address>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+385991231234">+385 99 123 1234</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h3>Accessories</h3>
+                                <div>
+                                    <h4>Accessories Type 1</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Accessories Type 1 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Accessories Type 1 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Accessories Type 1 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Accessories Type 2</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Accessories Type 2 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Accessories Type 2 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Accessories Type 2 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Contact Us</h4>
+                                    <ul>
+                                        <li>
+                                            <address>Trg Slobode 6</address>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+385991231234">+385 99 123 1234</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h3>Gifts</h3>
+                                <div>
+                                    <h4>Gifts Type 1</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Gifts Type 1 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gifts Type 1 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gifts Type 1 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Gifts Type 2</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Gifts Type 2 Product 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gifts Type 2 Product 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Gifts Type 2 Product 3</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4>Contact Us</h4>
+                                    <ul>
+                                        <li>
+                                            <address>Trg Slobode 6</address>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+385991231234">+385 99 123 1234</a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <h3>Contact Us</h3>
+                            </li>
+                        </ul>
+                        <button>Close Nav</button>
+                    </nav>
+                </li>
+            </ul>
+        </header>
 
         <main>
             <div>
@@ -19,76 +333,112 @@
                 </ul>
             </div>
 
+            <h1>Subcategory Name</h1>
+
             <section>
-                <h2>Subcategory Name</h2>
                 <button>Shop by</button>
-                <nav>
-                    <h3>Shopping options</h3>
+                <div>
+                    <h2>Shopping options</h2>
                     <ul>
                         <li>
-                            <h4>Color</h4>
+                            <h3>Color</h3>
                             <ul>
-                                <li>Color 1</li>
-                                <li>Color 2</li>
-                                <li>Color 3</li>
-                                <li>Color 4</li>
+                                <li>
+                                    <input type="checkbox" id="color-1" name="color-1" />
+                                    <label for="color-1">Color 1</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="color-2" name="color-2" />
+                                    <label for="color-2">Color 2</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="color-3" name="color-3" />
+                                    <label for="color-3">Color 3</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="color-4" name="color-4" />
+                                    <label for="color-4">Color 4</label>
+                                </li>
                             </ul>
                         </li>
                         <li>
-                            <h4>Size</h4>
+                            <h3>Size</h3>
                             <ul>
-                                <li>Size 1</li>
-                                <li>Size 2</li>
-                                <li>Size 3</li>
-                                <li>Size 4</li>
+                                <li>
+                                    <input type="checkbox" id="size-1" name="size-1" />
+                                    <label for="size-1">Size 1</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="size-2" name="size-2" />
+                                    <label for="size-2">Size 2</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="size-3" name="size-3" />
+                                    <label for="size-3">Size 3</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="size-4" name="size-4" />
+                                    <label for="size-4">Size 4</label>
+                                </li>
                             </ul>
                         </li>
                         <li>
-                            <h4>Material</h4>
+                            <h3>Material</h3>
                             <ul>
-                                <li>Material 1</li>
-                                <li>Material 2</li>
-                                <li>Material 3</li>
-                                <li>Material 4</li>
+                                <li>
+                                    <input type="checkbox" id="material-1" name="material-1" />
+                                    <label for="material-1">Material 1</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="material-2" name="material-2" />
+                                    <label for="material-2">Material 2</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="material-3" name="material-3" />
+                                    <label for="material-3">Material 3</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="material-4" name="material-4" />
+                                    <label for="material-4">Material 4</label>
+                                </li>
                             </ul>
                         </li>
                         <li>
-                            <h4>Price</h4>
+                            <h3>Price</h3>
                             <ul>
-                                <li>Price Range 1</li>
-                                <li>Price Range 2</li>
-                                <li>Price Range 3</li>
-                                <li>Price Range 4</li>
+                                <li>
+                                    <input type="range" id="price-range" name="price-range" />
+                                    <label for="price-range"></label>
+                                </li>
                             </ul>
                         </li>
                     </ul>
                     <button>Close Shop by</button>
-                </nav>
+                </div>
 
                 <div>
-                    <h3>Now shopping by</h3>
+                    <h2>Now shopping by</h2>
                     <p><span>x</span>Style: <span>Full zip</span></p>
                     <button>Clear all filters</button>
                 </div>
 
                 <div>
-                    <div>
-                        <button>View as grid</button>
-                        <button>View as list</button>
-                        <span>12 items</span>
-                    </div>
+                    <ul>
+                        <li><button title="Grid View">View as grid</button></li>
+                        <li><button title="List View">View as list</button></li>
+                    </ul>
                     <div>
                         <label for="sort-by">Sort by:</label>
                         <select name="sort-by" id="sort-by">
                             <option value="best">Bestseller</option>
-                            <option value="high">High Price</option>
-                            <option value="low">Low Price</option>
+                            <option value="price">Price</option>
                         </select>
+                        <button title="Set Direction">Arrow</button>
                     </div>
                 </div>
 
-                <section>
-                    <h3>Products</h3>
+                <div>
+                    <h2>Products</h2>
                     <ul>
                         <li>
                             <picture>
@@ -96,7 +446,7 @@
                                 <img src="" alt="" />
                             </picture>
                             <div>
-                                <h4>Product 1</h4>
+                                <h3><a href="./product.html">Product 1</a></h3>
                                 <div>
                                     <span>*</span>
                                     <span>*</span>
@@ -106,11 +456,18 @@
                                     <span>Num</span>
                                 </div>
                                 <p>As low as <strong>$21.99</strong></p>
-                                <div>
-                                    <button>Add to cart</button>
-                                    <span>Heart</span>
-                                    <span>Chart</span>
-                                </div>
+                                <form action="">
+                                    <input type="hidden" name="product" value="" />
+                                    <button type="submit">Add to Cart</button>
+                                </form>
+                                <ul>
+                                    <li>
+                                        <button>Heart</button>
+                                    </li>
+                                    <li>
+                                        <button>Chart</button>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                         <li>
@@ -119,7 +476,7 @@
                                 <img src="" alt="" />
                             </picture>
                             <div>
-                                <h4>Product 2</h4>
+                                <h3><a href="./product.html">Product 2</a></h3>
                                 <div>
                                     <span>*</span>
                                     <span>*</span>
@@ -129,11 +486,18 @@
                                     <span>Num</span>
                                 </div>
                                 <p>As low as <strong>$21.99</strong></p>
-                                <div>
-                                    <button>Add to cart</button>
-                                    <span>Heart</span>
-                                    <span>Chart</span>
-                                </div>
+                                <form action="">
+                                    <input type="hidden" name="product" value="" />
+                                    <button type="submit">Add to Cart</button>
+                                </form>
+                                <ul>
+                                    <li>
+                                        <button>Heart</button>
+                                    </li>
+                                    <li>
+                                        <button>Chart</button>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                         <li>
@@ -142,7 +506,7 @@
                                 <img src="" alt="" />
                             </picture>
                             <div>
-                                <h4>Product 3</h4>
+                                <h3><a href="./product.html">Product 3</a></h3>
                                 <div>
                                     <span>*</span>
                                     <span>*</span>
@@ -152,11 +516,18 @@
                                     <span>Num</span>
                                 </div>
                                 <p>As low as <strong>$21.99</strong></p>
-                                <div>
-                                    <button>Add to cart</button>
-                                    <span>Heart</span>
-                                    <span>Chart</span>
-                                </div>
+                                <form action="">
+                                    <input type="hidden" name="product" value="" />
+                                    <button type="submit">Add to Cart</button>
+                                </form>
+                                <ul>
+                                    <li>
+                                        <button>Heart</button>
+                                    </li>
+                                    <li>
+                                        <button>Chart</button>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                         <li>
@@ -165,7 +536,7 @@
                                 <img src="" alt="" />
                             </picture>
                             <div>
-                                <h4>Product 4</h4>
+                                <h3><a href="./product.html">Product 4</a></h3>
                                 <div>
                                     <span>*</span>
                                     <span>*</span>
@@ -175,20 +546,27 @@
                                     <span>Num</span>
                                 </div>
                                 <p>As low as <strong>$21.99</strong></p>
-                                <div>
-                                    <button>Add to cart</button>
-                                    <button>Heart</button>
-                                    <button>Chart</button>
-                                </div>
+                                <form action="">
+                                    <input type="hidden" name="product" value="" />
+                                    <button type="submit">Add to Cart</button>
+                                </form>
+                                <ul>
+                                    <li>
+                                        <button>Heart</button>
+                                    </li>
+                                    <li>
+                                        <button>Chart</button>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                     </ul>
-                </section>
+                </div>
             </section>
 
             <div>
                 <ol>
-                    <li><a href="#">1</a></li>
+                    <li><span>1</span></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>
                     <li><a href="#">Next</a></li>
@@ -204,6 +582,57 @@
             </div>
         </main>
 
-        <!-- include footer -->
+        <footer>
+            <section>
+                <h2>Newsletter</h2>
+                <p>Sign up for our newsletter and be the first to find out about new products, discounts and more</p>
+                <form>
+                    <fieldset>
+                        <legend>Grabsbee Newsleter Form</legend>
+                        <label for="newsletter"></label>
+                        <input name="newsletter" type="text" placeholder="Placeholder" />
+                        <button>Subscribe</button>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section>
+                <details>
+                    <summary><h2>Categories</h2></summary>
+                    <ul>
+                        <li>
+                            <a href="#">Frisbee</a>
+                        </li>
+                        <li>
+                            <a href="#">Gear</a>
+                        </li>
+                        <li>
+                            <a href="#">Accessories</a>
+                        </li>
+                        <li>
+                            <a href="#">Gifts</a>
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary><h2>Contact Us</h2></summary>
+                    <ul>
+                        <li>
+                            <address>Trg Slobode 6</address>
+                        </li>
+                        <li>
+                            <a href="tel:+385991231234">+3851231234</a>
+                        </li>
+                        <li>
+                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                        </li>
+                    </ul>
+                </details>
+            </section>
+
+            <div>
+                <small>Copyright &reg; 2021 Grabsbee</small>
+            </div>
+        </footer>
     </body>
 </html>
