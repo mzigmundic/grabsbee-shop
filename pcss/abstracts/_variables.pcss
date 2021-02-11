@@ -1,44 +1,79 @@
-$container-width: 1448px;
-$container-gutter: 1.5rem;
-$bp-large: 1024px;
-
-@custom-media --large (min-width: $bp-large);
-
 :root {
-  --blue-color: #12167a;
-  --red-color: #ec1d2e;
-  --neutral-color: #44ee4e;
+  /* Font families */
+  --font-family__heading: "Anton", sans-serif;
+  --font-family__body: "Open Sans", sans-serif;
 
-  /* Primary colors */
+  /* Main colors */
+  --color__primary: #12167a;
+  --color__secondary: #ec1d2e;
 
-  --primary__color: var(--blue-color);
-  --primary-10: #b9121d;
-  --primary-20: #d41727;
-  --primary-30: #740d15;
-
-  /* Secondary colors */
-
-  --secondary__color: var(--red-color);
+  /* Main colors variations */
+  --color__secondary-10: #d51727;
+  --color__secondary-20: #d00505;
+  --color__secondary-30: #89121d;
+  --color__secondary-40: #740d15;
 
   /* Neutral colors */
-  --text__color: var(--neutral-color);
+  --color__white: #fff;
+  --color__neutral-5: #e8e8e8;
+  --color__neutral-10: #cfcfcf;
+  --color__neutral-25: #9c9c9c;
+  --color__neutral-60: #828282;
+  --color__neutral-90: #696969;
+  --color__neutral-95: #4e4e4e;
+  --color__neutral-98: #1a1a1a;
+  --color__black: #000;
 
-  /* Components */
+  /* Util colors */
+  --color__success: #32d08d;
+  --color__error: #f14f39;
+  --color__warning: #f1b239;
 
-  /* Links */
+  /* Text colors */
+  --color-text__default: var(--color__neutral-95);
+  --color-text__invert: var(--color__white);
+  --color-text__muted: var(--color__neutral-10);
+ 
+  /* Link colors */
+  --color-link__default: var(--color__secondary);
+  --color-link__visited: var(--color__secondary-30);
+  --color-link__hover: var(--color__secondary-10);
+  --color-link__active: var(--color__secondary-40);
 
-  --link__color: var(--primary__color);
-  --link__visited__color: var(--primary-10);
-  --link__hover__color: var(--primary-20);
-  --link__active__color: var(--primary-30);
+  /* Button colors */
+  --color-button__primary-background: var(--color__primary);
+  --color-button__primary-border: var(--color__white);
+  --color-button__primary-text: var(--color__white);
+  --color-button__primary-background-hover: var(--color__secondary);
+  --color-button__primary-background-disabled: var(--color__neutral-25);
+  --color-button__secondary-background: var(--color__white);
+  --color-button__secondary-border: var(--color__secondary);
+  --color-button__secondary-text: var(--color__secondary);
+  --color-button__secondary-border-hover: var(--color__secondary);
+  --color-button__secondary-border-disabled: var(-color__neutral-25);
 
-  /* Buttons */
+  /* Form & input colors */
+  --color-form__label: var(--color__neutral-98);
+  --color-form__placeholder: var(--color__neutral-60);
+  --color-form__help-text: var(--color__neutral-90);
+  --color-input__background-default: var(--color__white);
+  --color-input__background-disabled: var(--color__neutral-5);
+  --color-input__border-default: var(--color-neutral-25);
+  --color-input__border-focus: var(--color-neutral-95);
+  --color-input__border-error: var(--color__secondary);
 
-  --button-primary__background: var(--primary__color);
-  --button-primary__background--hover: var(--secondary__color);
+  /* Search fields colors */
+  --color-search__background: var(--color__primary);
+  --color-search__placeholder: var(--color__white);
+  --color-search__border: var(--color__primary);
 
-  /* Headings */
+  /* Table colors */
+  --color-table__background-light: var(--color__white);
+  --color-table__background-dark: var(--color__neutral-5);
+  --color-table__text: var(--color__neutral-95);
 
-  --headings__type: "Anton", sans-serif;
-  --body__type: "Open Sans", sans-serif;
+  /* Icon colors */
+  --color-icon__bg-ligth: var(--color-neutral-95);
+  --color-icon__bg-dark: var(--color__white);
+  --color-icon__link: var(--color__secondary)
 }
