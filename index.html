@@ -442,7 +442,7 @@
                                     <source srcset="./assets/img/page-home/mobile/featured-4.jpg" />
                                     <img src="./assets/img/page-home/desktop/featured-4.jpg" alt="Featured Category 4" />
                                 </picture>
-                                <span class="h3">Gear</span>
+                                <span class="h3">Gifts</span>
                             </a>
                         </li>
                     </ul>
@@ -450,21 +450,23 @@
             </section>
         </main>
 
-        <footer>
-            <section>
-                <h2>Newsletter</h2>
-                <p>Sign up for our newsletter and be the first to find out about new products, discounts and more</p>
-                <form>
-                    <fieldset>
-                        <legend>Grabsbee Newsleter Form</legend>
-                        <label for="newsletter"></label>
-                        <input name="newsletter" type="text" placeholder="Placeholder" />
-                        <button>Subscribe</button>
-                    </fieldset>
-                </form>
+        <footer class="footer">
+            <section class="footer__newsletter">
+                <div class="container footer__newsletter-content">
+                    <h2>Newsletter</h2>
+                    <p><span>Sign up for our newsletter and be the first to find out about new products, discounts and more</span></p>
+                    <form>
+                        <fieldset class="newsletter-form-fieldset">
+                            <legend class="visually-hidden">Grabsbee Newsleter Form</legend>
+                            <label for="newsletter"></label>
+                            <input name="newsletter" type="text" placeholder="Placeholder" />
+                            <button class="button button--primary">Subscribe</button>
+                        </fieldset>
+                    </form>
+                </div>
             </section>
 
-            <section>
+            <section class="footer__summaries">
                 <details>
                     <summary><h2>Categories</h2></summary>
                     <ul>
@@ -498,7 +500,7 @@
                 </details>
             </section>
 
-            <div>
+            <div class="footer__copyright">
                 <small>Copyright &reg; 2021 Grabsbee</small>
             </div>
         </footer>
