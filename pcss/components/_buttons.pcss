@@ -28,11 +28,22 @@ button {
 }
 
 .button--primary {
-  color: white;
-  background: var(--button-primary__background);
+  color: var(--color-button__primary-text);
+  background-color: var(--color-button__primary-background);
+  border-color: var(--color-button__primary-border);
 
   &:hover {
-    background: var(--button-primary__background--hover);
+    background-color: var(--color-button__primary-background-hover);
+  }
+}
+
+.button--secondary {
+  color: var(--color-button__secondary-text);
+  background-color: var(--color-button__secondary-background);
+  border-color: var(--color-button__secondary-border);
+
+  &:hover {
+    border-color: var(--color-button__secondary-border-hover);
   }
 }
 

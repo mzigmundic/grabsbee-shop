@@ -6,3 +6,13 @@
   overflow: hidden;
   height: 100%;
 }
+
+.visually-hidden {
+  @mixin no-display;
+}
+
+.visually-hidden--desktop {
+  @media (--large) {
+    @mixin no-display;
+  }
+}

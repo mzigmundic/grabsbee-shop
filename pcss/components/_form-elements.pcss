@@ -1,5 +1,6 @@
 select,
-input {
+input[type="text"],
+input[type="email"] {
   display: inline-block;
   width: 100%;
   height: pxtorem(36px);
@@ -7,12 +8,12 @@ input {
   appearance: none;
   border-width: pxtorem(1px);
   border-style: solid;
-  border-color: var(--theme__color__primary__lighter);
+  border-color: var(--color-input__border-default);
   @mixin ui-default-transition border-color;
 
   &:focus {
     outline: none;
-    border-color: var(--theme__color__primary);
+    border-color: var(--color-input__border-focus);
   }
 
   @media (--large) {
@@ -30,7 +31,7 @@ textarea {
   }
 
   &:focus {
-    border-color: var(--theme__color__primary);
+    border-color: var(--color-input__border-focus);
   }
 }
 
@@ -46,6 +47,12 @@ select {
   &::-ms-expand {
     display: none;
   }
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 input[type="number"] {
