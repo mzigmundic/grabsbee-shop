@@ -347,62 +347,85 @@
             </div>
         </header>
 
-        <main>
-            <section>
-                <h2>Showcase</h2>
-                <ul>
-                    <li>
-                        <h3>Slider Picture 1</h3>
-                        <button>Buy product</button>
-                        <picture>
-                            <source />
-                            <img src="" alt="" />
+        <main class="home-page">
+            <section class="showcase">
+                <h2 class="visually-hidden">Showcase</h2>
+                <div class="showcase__arrows">
+                    <button class="button--no-styles">
+                        <i class="icon-arrow-left"></i>
+                    </button>
+                    <button class="button--no-styles">
+                        <i class="icon-arrow-right"></i>
+                    </button>
+                </div>
+                <ul class="showcase__list">
+                    <li class="showcase__list-item">
+                        <div class="showcase__list-item-text">
+                            <h3 class="h1">The flying disc one</h3>
+                            <a href="./product.html" class="button button--primary">Buy the disc</a>
+                        </div>
+                        <picture class="showcase__list-item-picture">
+                            <source srcset="./assets/img/page-home/desktop/showcase.jpg" media="(min-width: 1024px)" />
+                            <source srcset="./assets/img/page-home/mobile/showcase.jpg" />
+                            <img src="./assets/img/page-home/desktop/showcase.jpg" alt="Showcase Slider 1" />
                         </picture>
                     </li>
-                    <li>
-                        <h3>Slider Picture 2</h3>
-                        <button>Buy product</button>
-                        <picture>
-                            <source />
-                            <img src="" alt="" />
+                    <li class="showcase__list-item">
+                        <div class="showcase__list-item-text">
+                            <h3 class="h1">The flying disc two</h3>
+                            <a href="./product.html" class="button button--primary">Buy the disc</a>
+                        </div>
+                        <picture class="showcase__list-item-picture">
+                            <source srcset="./assets/img/page-home/desktop/showcase.jpg" media="(min-width: 1024px)" />
+                            <source srcset="./assets/img/page-home/mobile/showcase.jpg" />
+                            <img src="./assets/img/page-home/desktop/showcase.jpg" alt="Showcase Slider 2" />
                         </picture>
                     </li>
-                    <li>
-                        <h3>Slider Picture 3</h3>
-                        <button>Buy product</button>
-                        <picture>
-                            <source />
-                            <img src="" alt="" />
+                    <li class="showcase__list-item">
+                        <div class="showcase__list-item-text">
+                            <h3 class="h1">The flying disc three</h3>
+                            <a href="./product.html" class="button button--primary">Buy the disc</a>
+                        </div>
+                        <picture class="showcase__list-item-picture">
+                            <source srcset="./assets/img/page-home/desktop/showcase.jpg" media="(min-width: 1024px)" />
+                            <source srcset="./assets/img/page-home/mobile/showcase.jpg" />
+                            <img src="./assets/img/page-home/desktop/showcase.jpg" alt="Showcase Slider 3" />
                         </picture>
                     </li>
                 </ul>
             </section>
 
-            <section>
+            <div class="showcase__nav">
+                <div class="showcase__nav-item active"></div>
+                <div class="showcase__nav-item"></div>
+                <div class="showcase__nav-item"></div>
+            </div>
+
+            <section class="featured-categories">
                 <h2>Featured Categories</h2>
-                <ul>
-                    <li>
+                <ul class="featured-categories__list">
+                    <li class="featured-categories__list-item">
                         <picture>
                             <source />
                             <img src="" alt="" />
                         </picture>
                         <a href="#">Frisbees</a>
                     </li>
-                    <li>
+                    <li class="featured-categories__list-item">
                         <picture>
                             <source />
                             <img src="" alt="" />
                         </picture>
                         <a href="#">Gear</a>
                     </li>
-                    <li>
+                    <li class="featured-categories__list-item">
                         <picture>
                             <source />
                             <img src="" alt="" />
                         </picture>
                         <a href="#">Accessories</a>
                     </li>
-                    <li>
+                    <li class="featured-categories__list-item">
                         <picture>
                             <source />
                             <img src="" alt="" />

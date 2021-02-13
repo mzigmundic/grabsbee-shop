@@ -1,5 +1,6 @@
 .logo {
   margin-bottom: 0;
+  margin-left: pxtorem(-4);
 }
 
 .header {
@@ -10,8 +11,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: pxtorem(21);
-  padding-bottom: pxtorem(21);
+  height: pxtorem(63);
+
+  @media (--large) {
+    height: pxtorem(96);
+  }
 }
 
 .header__button {
