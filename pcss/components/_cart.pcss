@@ -1,0 +1,152 @@
+.cart {
+  background-color: var(--color__white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  font-size: pxtorem(12);
+  overflow-y: scroll;
+
+  @media (--large) {
+    font-size: pxtorem(14);
+  }
+}
+
+.cart__controls {
+  height: pxtorem(72);
+  display: flex;
+  justify-content: flex-end;
+  font-size: pxtorem(14);
+
+  & button {
+    color: var(--color-text__default);
+  }
+
+  @media (--large) {
+    font-size: pxtorem(16);
+  }
+}
+
+.cart__paragraph, .cart__paragraph--uppercase {
+  font-weight: 700;
+}
+
+.cart__paragraph--uppercase {
+  text-transform: uppercase;
+}
+
+.cart__list-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__item-content {
+  display: flex;
+}
+
+.cart__item-picture {
+  padding-right: pxtorem(24);
+}
+
+.cart__item-description {
+  & h3 a {
+    color: var(--color__secondary);
+    font-size: pxtorem(14);
+    font-family: var(--font-family__body);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.cart__item-description-list-item {
+  margin-bottom: pxtorem(12);
+}
+
+.cart__item-description-list-item dt, .cart__item-description-list-item dd {
+  display: inline-block;
+}
+
+.cart__item-description-list-item dt {
+  font-weight: bold;
+
+  &::after {
+    content: ":";
+  }
+}
+
+.cart__item-input {
+  display: flex;
+  align-items: center;
+  & input[type="number"] {
+    width: pxtorem(63);
+    margin-left: pxtorem(5);
+  }
+}
+
+.cart__controls--edit-trash {
+  height: pxtorem(42);
+  margin-bottom: pxtorem(21);
+  & button i {
+    font-size: pxtorem(18);
+    margin-left: pxtorem(21);
+  }
+}
+
+.cart__totals tbody tr {
+  height: pxtorem(58);
+  border-top: 1px solid var(--color__primary);
+  border-bottom: 1px solid var(--color__primary);
+  font-size: pxtorem(14);
+
+  & td {
+      &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+      font-weight: bold;
+    }
+  }
+
+  @media (--large) {
+    font-size: pxtorem(16);
+  }
+}
+
+.cart__controls-bottom {
+  margin-top: pxtorem(24);
+  margin-bottom: pxtorem(21);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+
+  & button {
+    display: block;
+    width: 100%;
+    margin-bottom: pxtorem(21);
+
+    @media (--large) {
+      display: inline-block;
+      width: pxtorem(336);
+      margin-bottom: 0;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: pxtorem(14);
+
+    @media (--large) {
+      font-size: pxtorem(16)
+    }
+  }
+
+  @media (--large) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

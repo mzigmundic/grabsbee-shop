@@ -23,129 +23,183 @@
                 </h1>
                 <ul class="header__options-list">
                     <li class="header__options-list-item">
-                        <button class="button--no-styles header__button">
+                        <button class="button--no-styles header__button" id="trigger-search-open">
                             <i class="icon-search"></i>
                             <span class="visually-hidden">Search Trigger</span>
                         </button>
-                        <div class="visually-hidden">
-                            <form>
-                                <fieldset>
-                                    <legend class="visually-hidden">Grabsbee search form</legend>
-                                    <label for="search"></label>
-                                    <input
-                                        name="search"
-                                        type="text"
-                                        placeholder="Search entire store here..."
-                                        aria-label="Search through site content"
-                                    />
-                                    <button class="button--no-styles header__button">
-                                        <i class="icon-search"></i>
-                                        <span class="visually-hidden">Search it</span>
-                                    </button>
-                                </fieldset>
-                            </form>
-                            <button class="button--no-styles header__button">
-                                <span>Close</span>
-                                <i class="icon-x-circle"></i>
-                            </button>
+                        <div class="visually-hidden header__search">
+                            <div class="container">
+                                <form class="header__search-form">
+                                    <fieldset>
+                                        <legend class="visually-hidden">Grabsbee search form</legend>
+                                        <label for="search" class="visually-hidden"></label>
+                                        <input
+                                            name="search"
+                                            type="text"
+                                            placeholder="Search entire store here..."
+                                            aria-label="Search through site content"
+                                        />
+                                        <button class="button--no-styles header__button" id="trigger-search-confirm">
+                                            <i class="icon-search"></i>
+                                            <span class="visually-hidden">Search it</span>
+                                        </button>
+                                    </fieldset>
+                                </form>
+                                <button class="button--no-styles button--close" id="trigger-search-close">
+                                    <span>Close</span>
+                                    <i class="icon-x-circle"></i>
+                                </button>
+                            </div>
                         </div>
                     </li>
 
                     <li class="header__options-list-item">
-                        <button class="button--no-styles header__button">
+                        <button class="button--no-styles header__button" id="trigger-cart-open">
                             <i class="icon-shopping-cart"></i>
                             <span class="visually-hidden">CartTrigger</span>
                         </button>
-                        <section class="visually-hidden">
-                            <h2>Cart</h2>
-                            <p>2 items in cart</p>
-                            <ul>
-                                <li>
-                                    <div>
-                                        <img src="" alt="" />
-                                    </div>
-                                    <div>
-                                        <h3>
-                                            <a href="#">Cart item name 1</a>
-                                        </h3>
-                                        <dl>
-                                            <dt>Color</dt>
-                                            <dd>Black</dd>
-                                            <dt>Price</dt>
-                                            <dd>10$</dd>
-                                            <dt>Qty</dt>
-                                            <dd>
-                                                <form>
-                                                    <fieldset>
-                                                        <legend>Item qty control</legend>
-                                                        <label for="qty">Qty:</label>
-                                                        <input name="qty" type="number" />
-                                                    </fieldset>
-                                                </form>
-                                            </dd>
-                                        </dl>
-                                    </div>
-                                    <div>
-                                        <button>Edit</button>
-                                        <button>Trash</button>
-                                    </div>
-                                </li>
+                        <section class="cart visually-hidden">
+                            <div class="container">
+                                <div class="cart__controls">
+                                    <button class="button--no-styles button--close" id="trigger-cart-close">
+                                        <span>Close</span>
+                                        <i class="icon-x-circle"></i>
+                                    </button>
+                                </div>
+                                <h2 class="visually-hidden">Cart</h2>
+                                <div class="cart__empty">
+                                    <p class="cart__paragraph visually-hidden">You have no items in your shopping cart</p>
+                                </div>
+                                <div class="cart__not-empty">
+                                    <p class="cart__paragraph--uppercase">2 items in cart</p>
+                                    <p class="cart__paragraph">Recently added items</p>
+                                    <ul class="cart__list">
+                                        <li class="cart__list-item">
+                                            <div class="cart__item-content">
+                                                <div class="cart__item-picture">
+                                                    <picture>
+                                                        <source
+                                                            srcset="./assets/img/common/desktop/cart-item-1.jpg"
+                                                            media="(min-width: 1024px)"
+                                                        />
+                                                        <source srcset="./assets/img/common/mobile/cart-item-1.jpg" />
+                                                        <img src="./assets/img/common/desktop/cart-item-1.jpg" alt="Cart item 1" />
+                                                    </picture>
+                                                </div>
+                                                <div class="cart__item-description">
+                                                    <h3>
+                                                        <a href="./product.html">Cart item name 1</a>
+                                                    </h3>
+                                                    <dl>
+                                                        <div class="cart__item-description-list-item">
+                                                            <dt>Color</dt>
+                                                            <dd>Black</dd>
+                                                        </div>
+                                                        <div class="cart__item-description-list-item">
+                                                            <dt>Price</dt>
+                                                            <dd>10$</dd>
+                                                        </div>
+                                                        <div class="cart__item-description-list-item cart__item-input">
+                                                            <dt>Qty</dt>
+                                                            <dd>
+                                                                <form>
+                                                                    <fieldset>
+                                                                        <legend class="visually-hidden">Item qty control</legend>
+                                                                        <label for="qty" class="visually-hidden">Qty:</label>
+                                                                        <input name="qty" type="number" />
+                                                                    </fieldset>
+                                                                </form>
+                                                            </dd>
+                                                        </div>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="cart__controls cart__controls--edit-trash">
+                                                <button>
+                                                    <span class="visually-hidden">Edit</span>
+                                                    <i class="icon-edit"></i>
+                                                </button>
+                                                <button>
+                                                    <span class="visually-hidden">Trash</span>
+                                                    <i class="icon-trash"></i>
+                                                </button>
+                                            </div>
+                                        </li>
 
-                                <li>
-                                    <div>
-                                        <img src="" alt="" />
+                                        <li class="cart__list-item">
+                                            <div class="cart__item-content">
+                                                <div class="cart__item-picture">
+                                                    <picture>
+                                                        <source
+                                                            srcset="./assets/img/common/desktop/cart-item-2.jpg"
+                                                            media="(min-width: 1024px)"
+                                                        />
+                                                        <source srcset="./assets/img/common/mobile/cart-item-2.jpg" />
+                                                        <img src="./assets/img/common/desktop/cart-item-2.jpg" alt="Cart item 2" />
+                                                    </picture>
+                                                </div>
+                                                <div class="cart__item-description">
+                                                    <h3>
+                                                        <a href="./product.html">Cart item name 2</a>
+                                                    </h3>
+                                                    <dl>
+                                                        <div class="cart__item-description-list-item">
+                                                            <dt>Color</dt>
+                                                            <dd>Black</dd>
+                                                        </div>
+                                                        <div class="cart__item-description-list-item">
+                                                            <dt>Price</dt>
+                                                            <dd>10$</dd>
+                                                        </div>
+                                                        <div class="cart__item-description-list-item cart__item-input">
+                                                            <dt>Qty</dt>
+                                                            <dd>
+                                                                <form>
+                                                                    <fieldset>
+                                                                        <legend class="visually-hidden">Item qty control</legend>
+                                                                        <label for="qty" class="visually-hidden">Qty:</label>
+                                                                        <input name="qty" type="number" />
+                                                                    </fieldset>
+                                                                </form>
+                                                            </dd>
+                                                        </div>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="cart__controls cart__controls--edit-trash">
+                                                <button>
+                                                    <span class="visually-hidden">Edit</span>
+                                                    <i class="icon-edit"></i>
+                                                </button>
+                                                <button>
+                                                    <span class="visually-hidden">Trash</span>
+                                                    <i class="icon-trash"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <table class="cart__totals">
+                                        <caption class="visually-hidden">
+                                            Your cart totals table
+                                        </caption>
+                                        <tbody>
+                                            <tr>
+                                                <td>Cart Subtotal</td>
+                                                <td>$42.88</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="cart__controls-bottom">
+                                        <a href="#" class="button--secondary" title="Back to Cart Page">View and edit cart</a>
+                                        <button class="button button--primary">Proceed to checkout</button>
                                     </div>
-                                    <div>
-                                        <h3>
-                                            <a href="#">Cart item name 2</a>
-                                        </h3>
-                                        <dl>
-                                            <dt>Color</dt>
-                                            <dd>Black</dd>
-                                            <dt>Price</dt>
-                                            <dd>15$</dd>
-                                            <dt>Qty</dt>
-                                            <dd>
-                                                <form>
-                                                    <fieldset>
-                                                        <legend>Item qty control</legend>
-                                                        <label for="qty"></label>
-                                                        <input name="qty" type="number" />
-                                                    </fieldset>
-                                                </form>
-                                            </dd>
-                                        </dl>
-                                    </div>
-                                    <div>
-                                        <button>Edit</button>
-                                        <button>Trash</button>
-                                    </div>
-                                </li>
-                            </ul>
-                            <table>
-                                <caption>
-                                    Your cart totals table
-                                </caption>
-                                <tbody>
-                                    <tr>
-                                        <td>Subtotal</td>
-                                        <td>$$</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div>
-                                <a href="#" title="Back to Cart Page">View and edit cart</a>
-                                <button>Proceed to checkout</button>
-                            </div>
-
-                            <div>
-                                <strong>You have no items in your shopping cart</strong>
+                                </div>
                             </div>
                         </section>
                     </li>
 
                     <li class="header__options-list-item">
-                        <button class="button--no-styles header__button visually-hidden--desktop">
+                        <button class="button--no-styles header__button visually-hidden--desktop" id="trigger-menu-open">
                             <i class="icon-menu"></i>
                             <span class="visually-hidden">Navigation Trigger</span>
                         </button>
@@ -340,7 +394,10 @@
                                     <h3>Contact Us</h3>
                                 </li>
                             </ul>
-                            <button>Close Nav</button>
+                            <button class="button--no-styles header__button" id="trigger-menu-close">
+                                <span>Close</span>
+                                <i class="icon-x-circle"></i>
+                            </button>
                         </nav>
                     </li>
                 </ul>
