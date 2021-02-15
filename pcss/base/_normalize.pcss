@@ -46,6 +46,8 @@ ol[class] {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  text-decoration: none;
+  color: var(--color-text__default);
 }
 
 /* Make images easier to work with */
@@ -60,6 +62,12 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+/* Selection Colors */
+::selection {
+	background-color: var(--color__primary);
+	color: var(--color__secondary);
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

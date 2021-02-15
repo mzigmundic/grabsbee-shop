@@ -1,0 +1,42 @@
+.main-nav {
+  background-color: var(--color__white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  font-size: pxtorem(12);
+  overflow-y: scroll;
+
+  @media (--large) {
+    font-size: pxtorem(14);
+  }
+}
+
+.main-nav__close {
+  height: pxtorem(72);
+  display: flex;
+  justify-content: flex-end;
+  font-size: pxtorem(14);
+
+  & button {
+    color: var(--color-text__default);
+  }
+
+  @media (--large) {
+    font-size: pxtorem(16);
+  }
+}
+
+.main-nav__content {
+  & h2 {
+    font-family: var(--font-family__body);
+    font-size: pxtorem(14);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--color__primary);
+    margin-bottom: pxtorem(25);
+  }
+}
+

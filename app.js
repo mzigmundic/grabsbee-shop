@@ -8,6 +8,15 @@ const triggerCartOpen = document.getElementById("trigger-cart-open");
 const triggerCartClose = document.getElementById("trigger-cart-close");
 const cartContainer = document.querySelector(".cart");
 
+/* Main Navigation */
+const triggerMainNavOpen = document.getElementById("trigger-menu-open");
+const triggerMainNavClose = document.getElementById("trigger-menu-close");
+const mainNavContainer = document.querySelector(".main-nav");
+
+/* Accordion */
+const accordionLevelOneHeadings = Array.from(document.querySelectorAll(".accordion__item-level-1-heading"));
+const accordionLevelTwoHeadings = Array.from(document.querySelectorAll(".accordion__item-level-2-heading"));
+
 /* Footer Summaries */
 const summaryDetails = Array.from(document.querySelectorAll(".footer__summaries-details-summary"));
 
@@ -23,28 +32,7 @@ const breakPoint = 1024;
 let showcaseIndex;
 let browserWidth;
 checkAppereance();
-
-/* Event Listeners */
-window.addEventListener("resize", checkAppereance);
-
-showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
-showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
-
-triggerSearchOpen.addEventListener("click", () => show(searchContainer));
-triggerSearchClose.addEventListener("click", () => hide(searchContainer));
-
-triggerCartOpen.addEventListener("click", () => {
-    show(cartContainer);
-    disableMainPageScroll();
-});
-triggerCartClose.addEventListener("click", () => {
-    hide(cartContainer);
-    enableMainPageScroll();
-});
-
-summaryDetails.forEach((summary) => {
-    summary.addEventListener("click", (e) => handleFooterSummaryClick(summary, e));
-});
+setEventListeners();
 
 /* Functions */
 function hide(element) {
@@ -125,4 +113,60 @@ function resetAllPageValues() {
 function checkAppereance() {
     resetAllPageValues();
     updateSummariesAppereance();
+}
+
+function setEventListeners() {
+    window.addEventListener("resize", checkAppereance);
+
+    showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
+    showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
+
+    triggerSearchOpen.addEventListener("click", () => show(searchContainer));
+    triggerSearchClose.addEventListener("click", () => hide(searchContainer));
+
+    triggerCartOpen.addEventListener("click", () => {
+        show(cartContainer);
+        disableMainPageScroll();
+    });
+    triggerCartClose.addEventListener("click", () => {
+        hide(cartContainer);
+        enableMainPageScroll();
+    });
+
+    triggerMainNavOpen.addEventListener("click", () => {
+        show(mainNavContainer);
+        disableMainPageScroll();
+    });
+    triggerMainNavClose.addEventListener("click", () => {
+        hide(mainNavContainer);
+        enableMainPageScroll();
+    });
+
+    summaryDetails.forEach((summary) => {
+        summary.addEventListener("click", (e) => handleFooterSummaryClick(summary, e));
+    });
+
+    accordionLevelOneHeadings.forEach((acc) => {
+        acc.addEventListener("click", (e) => {
+            if (acc.contains(e.target) && !acc.classList.contains("active")) {
+                acc.classList.add("active");
+                show(acc.parentElement.querySelector(".accordion__item-level-1-content"));
+            } else if (acc.contains(e.target) && acc.classList.contains("active")) {
+                acc.classList.remove("active");
+                hide(acc.parentElement.querySelector(".accordion__item-level-1-content"));
+            }
+        });
+    });
+
+    accordionLevelTwoHeadings.forEach((acc) => {
+        acc.addEventListener("click", (e) => {
+            if (acc.contains(e.target) && !acc.classList.contains("active")) {
+                acc.classList.add("active");
+                show(acc.parentElement.querySelector(".accordion__item-level-2-content"));
+            } else if (acc.contains(e.target) && acc.classList.contains("active")) {
+                acc.classList.remove("active");
+                hide(acc.parentElement.querySelector(".accordion__item-level-2-content"));
+            }
+        });
+    });
 }
