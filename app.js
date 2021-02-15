@@ -1,96 +1,105 @@
+/* Search Elements */
 const triggerSearchOpen = document.getElementById("trigger-search-open");
 const triggerSearchClose = document.getElementById("trigger-search-close");
 const searchContainer = document.querySelector(".header__search");
 
-triggerSearchOpen.addEventListener("click", () => {
-    searchContainer.classList.remove("visually-hidden");
-});
-
-triggerSearchClose.addEventListener("click", () => {
-    searchContainer.classList.add("visually-hidden");
-});
-
+/* Cart Elements */
 const triggerCartOpen = document.getElementById("trigger-cart-open");
 const triggerCartClose = document.getElementById("trigger-cart-close");
 const cartContainer = document.querySelector(".cart");
-const body = document.body;
 
-triggerCartOpen.addEventListener("click", () => {
-    cartContainer.classList.remove("visually-hidden");
-    body.classList.add("modal-open");
-});
-
-triggerCartClose.addEventListener("click", () => {
-    cartContainer.classList.add("visually-hidden");
-    body.classList.remove("modal-open");
-});
-
-const breakPoint = 1024;
+/* Footer Summaries */
 const summaryDetails = Array.from(document.querySelectorAll(".footer__summaries-details-summary"));
-summaryDetails.forEach((summary) => {
-    summary.addEventListener("click", (e) => {
-        if (summary.contains(e.target)) {
-            const icon = summary.getElementsByTagName("i")[0];
-            if (icon.classList.contains("icon-chevron-down")) {
-                icon.classList.remove("icon-chevron-down");
-                icon.classList.add("icon-chevron-up");
-            } else {
-                icon.classList.remove("icon-chevron-up");
-                icon.classList.add("icon-chevron-down");
-            }
-        }
-    });
-});
 
+/* Showcase Elements */
 const showcaseList = document.querySelector(".showcase__list");
 const showcaseArrowLeft = document.getElementById("showcase-arrow-left");
 const showcaseArrowRight = document.getElementById("showcase-arrow-right");
 const showcaseIndicators = Array.from(document.querySelectorAll(".showcase__nav-item"));
 const numOfPics = document.querySelectorAll(".showcase__list-item").length;
 
-let showcaseIndex = 0;
+/* Script Variables */
+const breakPoint = 1024;
+let showcaseIndex;
+let browserWidth;
+checkAppereance();
 
-let browserWidth = findInner();
-showcaseArrowRight.addEventListener("click", () => {
+/* Event Listeners */
+window.addEventListener("resize", checkAppereance);
+
+showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
+showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
+
+triggerSearchOpen.addEventListener("click", () => show(searchContainer));
+triggerSearchClose.addEventListener("click", () => hide(searchContainer));
+
+triggerCartOpen.addEventListener("click", () => {
+    show(cartContainer);
+    disableMainPageScroll();
+});
+triggerCartClose.addEventListener("click", () => {
+    hide(cartContainer);
+    enableMainPageScroll();
+});
+
+summaryDetails.forEach((summary) => {
+    summary.addEventListener("click", (e) => handleFooterSummaryClick(summary, e));
+});
+
+/* Functions */
+function hide(element) {
+    element.classList.add("visually-hidden");
+}
+
+function show(element) {
+    element.classList.remove("visually-hidden");
+}
+
+function disableMainPageScroll() {
+    document.body.classList.add("modal-open");
+}
+
+function enableMainPageScroll() {
+    document.body.classList.remove("modal-open");
+}
+
+function handleShowcaseArrowRight() {
     if (showcaseIndex < numOfPics - 1) {
         showcaseIndex++;
         showcaseList.style.transform = `translateX(-${showcaseIndex * browserWidth}px)`;
         showcaseIndicators[showcaseIndex - 1].classList.remove("active");
         showcaseIndicators[showcaseIndex].classList.add("active");
     }
-});
-showcaseArrowLeft.addEventListener("click", () => {
+}
+
+function handleShowcaseArrowLeft() {
     if (showcaseIndex > 0) {
         showcaseIndex--;
         showcaseList.style.transform = `translateX(-${showcaseIndex * browserWidth}px)`;
         showcaseIndicators[showcaseIndex + 1].classList.remove("active");
         showcaseIndicators[showcaseIndex].classList.add("active");
     }
-});
-
-checkAppereance();
-window.addEventListener("resize", checkAppereance);
-
-function findInner() {
-    return showcaseList.clientWidth / numOfPics;
 }
 
-function checkAppereance() {
-    function preventD(e) {
-        e.preventDefault();
+function handleFooterSummaryClick(summary, e) {
+    if (summary.contains(e.target)) {
+        const icon = summary.getElementsByTagName("i")[0];
+        if (icon.classList.contains("icon-chevron-down")) {
+            icon.classList.remove("icon-chevron-down");
+            icon.classList.add("icon-chevron-up");
+        } else {
+            icon.classList.remove("icon-chevron-up");
+            icon.classList.add("icon-chevron-down");
+        }
     }
-    browserWidth = findInner();
-    showcaseIndex = 0;
-    showcaseList.style.transform = `translateX(0)`;
-    showcaseIndicators.forEach((indicator) => {
-        indicator.classList.remove("active");
-    });
-    showcaseIndicators[0].classList.add("active");
+}
+
+function updateSummariesAppereance() {
     if (window.innerWidth >= breakPoint) {
         summaryDetails.forEach((summary) => {
             summary.parentElement.setAttribute("open", true);
             summary.classList.add("details-disabled-on-large");
-            summary.addEventListener("click", (e) => e.preventD);
+            summary.addEventListener("click", (e) => e.target);
         });
     } else {
         summaryDetails.forEach((summary) => {
@@ -98,7 +107,22 @@ function checkAppereance() {
             summary.getElementsByTagName("i")[0].classList.remove("icon-chevron-up");
             summary.getElementsByTagName("i")[0].classList.add("icon-chevron-down");
             summary.classList.remove("details-disabled-on-large");
-            summary.removeEventListener("click", (e) => e.preventD);
+            summary.removeEventListener("click", (e) => e.target);
         });
     }
+}
+
+function resetAllPageValues() {
+    browserWidth = document.body.clientWidth;
+    showcaseIndex = 0;
+    showcaseList.style.transform = `translateX(0)`;
+    showcaseIndicators.forEach((indicator) => {
+        indicator.classList.remove("active");
+    });
+    showcaseIndicators[0].classList.add("active");
+}
+
+function checkAppereance() {
+    resetAllPageValues();
+    updateSummariesAppereance();
 }
