@@ -6,10 +6,8 @@
 .showcase__arrows {
   position: absolute;
   height: 100%;
-  width: calc(100vw - (100vw - 100%));
   display: flex;
   align-items: center;
-  justify-content: space-between;
   z-index: 1;
 
   & button {
@@ -30,6 +28,11 @@
         width: pxtorem(48);
       }
   }
+}
+
+.showcase__arrows--right {
+  right: 0;
+  top: 0;
 }
 
 .showcase__list {
