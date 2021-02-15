@@ -103,11 +103,13 @@ function updateSummariesAppereance() {
 function resetAllPageValues() {
     browserWidth = document.body.clientWidth;
     showcaseIndex = 0;
-    showcaseList.style.transform = `translateX(0)`;
-    showcaseIndicators.forEach((indicator) => {
-        indicator.classList.remove("active");
-    });
-    showcaseIndicators[0].classList.add("active");
+    if (showcaseList) {
+        showcaseList.style.transform = `translateX(0)`;
+        showcaseIndicators.forEach((indicator) => {
+            indicator.classList.remove("active");
+        });
+        showcaseIndicators[0].classList.add("active");
+    }
 }
 
 function checkAppereance() {
@@ -118,8 +120,10 @@ function checkAppereance() {
 function setEventListeners() {
     window.addEventListener("resize", checkAppereance);
 
-    showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
-    showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
+    if (showcaseList) {
+        showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
+        showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
+    }
 
     triggerSearchOpen.addEventListener("click", () => show(searchContainer));
     triggerSearchClose.addEventListener("click", () => hide(searchContainer));
