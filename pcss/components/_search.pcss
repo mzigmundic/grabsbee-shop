@@ -1,12 +1,17 @@
-.header__search {
+.search {
   background-color: var(--color__primary);
   position: absolute;
-  top: 0;
+  top: pxtorem(-150);
   left: 0;
   height: pxtorem(147);
   width: 100%;
   z-index: 2;
   font-size: pxtorem(14);
+  transition: 0.5s;
+
+  &.active {
+    top: 0;
+  }
 
   & .container {
     height: 100%;
@@ -28,12 +33,12 @@
   }
 }
 
-.header__search-form {
+.search-form {
   width: 100%;
 }
 
 
-.header__search-form fieldset {
+.search-form fieldset {
   display: flex;
   width: 100%;
   flex-direction: row-reverse;
@@ -55,6 +60,10 @@
   & button {
     padding-left: 0;
     padding-right: 0;
+
+    & i {
+      color: (--color__white);
+    }
   }
 
   @media (--large) {

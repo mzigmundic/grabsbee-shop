@@ -1,3 +1,7 @@
+form {
+  display: inline-block;
+}
+
 select,
 input[type="text"],
 input[type="email"],
@@ -58,6 +62,8 @@ fieldset {
 
 input[type="number"] {
   -moz-appearance: textfield;
+  width: pxtorem(63);
+  margin-left: pxtorem(5);
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {

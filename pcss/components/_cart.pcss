@@ -1,20 +1,25 @@
 .cart {
   background-color: var(--color__white);
   position: fixed;
-  top: 0;
+  top: -100%;
   left: 0;
   height: 100%;
   width: 100%;
   z-index: 2;
   font-size: pxtorem(12);
   overflow-y: auto;
+  transition: 0.75s;
+
+  &.active {
+    top: 0;
+  }
 
   @media (--large) {
     font-size: pxtorem(14);
   }
 }
 
-.cart__controls {
+.cart__close {
   height: pxtorem(72);
   display: flex;
   justify-content: flex-end;
@@ -29,6 +34,17 @@
   }
 }
 
+.cart__item-manager {
+  height: pxtorem(42);
+  margin-bottom: pxtorem(21);
+  display: flex;
+  justify-content: flex-end;
+  & button {
+    font-size: pxtorem(18);
+    margin-left: pxtorem(21);
+  }
+}
+
 .cart__paragraph, .cart__paragraph--uppercase {
   font-weight: 700;
 }
@@ -37,20 +53,20 @@
   text-transform: uppercase;
 }
 
-.cart__list-item {
+.cart__product {
   display: flex;
   flex-direction: column;
 }
 
-.cart__item-content {
+.cart__product-wrapper {
   display: flex;
 }
 
-.cart__item-picture {
+.cart__product-picture {
   padding-right: pxtorem(24);
 }
 
-.cart__item-description {
+.cart__product-description {
   & h3 a {
     color: var(--color__secondary);
     font-size: pxtorem(14);
@@ -61,38 +77,14 @@
   }
 }
 
-.cart__item-description-list-item {
+.cart__product-description-feature {
   margin-bottom: pxtorem(12);
 }
 
-.cart__item-description-list-item dt, .cart__item-description-list-item dd {
-  display: inline-block;
-}
-
-.cart__item-description-list-item dt {
-  font-weight: bold;
-
-  &::after {
-    content: ":";
-  }
-}
-
-.cart__item-input {
+.cart__product-description-feature--input {
+  margin-bottom: pxtorem(12);
   display: flex;
   align-items: center;
-  & input[type="number"] {
-    width: pxtorem(63);
-    margin-left: pxtorem(5);
-  }
-}
-
-.cart__controls--edit-trash {
-  height: pxtorem(42);
-  margin-bottom: pxtorem(21);
-  & button i {
-    font-size: pxtorem(18);
-    margin-left: pxtorem(21);
-  }
 }
 
 .cart__totals tbody tr {
@@ -116,7 +108,7 @@
   }
 }
 
-.cart__controls-bottom {
+.cart__link-actions {
   margin-top: pxtorem(24);
   margin-bottom: pxtorem(21);
   display: flex;

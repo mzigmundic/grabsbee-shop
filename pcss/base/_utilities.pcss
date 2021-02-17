@@ -4,7 +4,11 @@
 
 .no-scroll {
   overflow: hidden;
-  height: 100%;
+  height: 100vh;
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .visually-hidden {
@@ -19,8 +23,4 @@
 
 .details-disabled-on-large {
   pointer-events: none;
-}
-
-.modal-open {
-  position: fixed;
 }
