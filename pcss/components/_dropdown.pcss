@@ -1,0 +1,36 @@
+.dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &.dropdown--chevron {
+    justify-content: space-between;
+    &.active {
+      &::after {
+        @mixin icon-font-display "\e90c";
+      }
+    }
+
+    &::after {
+      margin-left: pxtorem(7);
+      @mixin icon-font-display "\e909";
+    }
+}
+
+  &.dropdown--sign {
+    justify-content: flex-start;
+    &::before {
+      @mixin icon-font-display "\e91d";
+      margin-left: pxtorem(12);
+      margin-right: pxtorem(7);
+    }
+
+    &.active {
+      &::before {
+        @mixin icon-font-display "\e91a";
+      }
+    }
+  }
+}
+
