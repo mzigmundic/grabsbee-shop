@@ -1,33 +1,33 @@
-.dropdown {
+.dropdown--chevron {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
-
-  &.dropdown--chevron {
-    justify-content: space-between;
-    &.active {
-      &::after {
-        @mixin icon-font-display "\e90c";
-      }
-    }
-
+  &.active {
     &::after {
-      @mixin icon-font-display "\e909";
+      @mixin icon-font-display "\e90c";
     }
+  }
+
+  &::after {
+    @mixin icon-font-display "\e909";
+  }
 }
 
-  &.dropdown--sign {
-    justify-content: flex-start;
-    &::before {
-      @mixin icon-font-display "\e91d";
-      margin-left: pxtorem(12);
-      margin-right: pxtorem(7);
-    }
+.dropdown--sign {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  &::before {
+    @mixin icon-font-display "\e91d";
+    margin-left: pxtorem(12);
+    margin-right: pxtorem(7);
+  }
 
-    &.active {
-      &::before {
-        @mixin icon-font-display "\e91a";
-      }
+  &.active {
+    &::before {
+      @mixin icon-font-display "\e91a";
     }
   }
 }

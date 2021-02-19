@@ -36,12 +36,12 @@ const productsGrid = document.querySelector(".products__grid");
 /* Script Variables */
 const breakPoint = 1024;
 const mediaQuery = window.matchMedia(`(min-width: ${breakPoint}px)`);
+let showcaseIndex;
 let numOfPics;
 if (showcaseList) {
     numOfPics = showcaseList.querySelectorAll(".showcase__item").length;
 }
 
-let showcaseIndex;
 handleWidescreenChange(mediaQuery);
 checkShowcaseAppereance();
 setEventListeners();
@@ -99,6 +99,11 @@ function handleWidescreenChange(e) {
             fd.open = true;
             fd.addEventListener("click", preventer);
         });
+        accordionHeadings.forEach((ah) => {
+            deactivate(ah);
+            hide(ah.parentElement.querySelector(":scope > .accordion-content"));
+        });
+        enableBodyScroll();
     } else {
         footerDetails.forEach((fd) => {
             fd.open = false;
@@ -109,10 +114,16 @@ function handleWidescreenChange(e) {
 
 function handleAccordion(e, accordionHead) {
     accordionContent = accordionHead.parentElement.querySelector(":scope > .accordion-content");
-    if (accordionHead.contains(e.target) && !accordionHead.classList.contains("active")) {
+    if (
+        accordionHead.contains(e.target) &&
+        !accordionHead.classList.contains("active") &&
+        ((!accordionHead.parentElement.classList.contains("nav__category-item") &&
+            !accordionHead.parentElement.classList.contains("nav__subcategory-item")) ||
+            !mediaQuery.matches)
+    ) {
         activate(accordionHead);
         show(accordionContent);
-    } else if (accordionHead.contains(e.target) && accordionHead.classList.contains("active")) {
+    } else if (accordionHead.contains(e.target)) {
         deactivate(accordionHead);
         hide(accordionContent);
     }

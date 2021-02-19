@@ -1,3 +1,9 @@
+.subcategory-page {
+  @media (--large) {
+    margin-top: pxtorem(48);
+  }
+}
+
 .subcategory-page__heading {
   height: pxtorem(48);
   display: flex;
@@ -58,22 +64,11 @@
     top: 0;
   }
 
-  @media (--large) {
-    position: static;
-    z-index: 0;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   & h2 {
     font-size: pxtorem(14);
     font-family: var(--font-family__body);
     color: var(--color__primary);
     text-transform: uppercase;
-
-    @media (--large) {
-      font-size: pxtorem(16);
-    }
   }
 
   & .shopping-options__filters__close {
@@ -85,21 +80,11 @@
     & button {
       color: var(--color-text__default);
     }
-
-    @media (--large) {
-      display: none;
-    }
   }
 
   & .navigation--heading {
     font-family: var(--font-family__body);
-    @media (--large) {
-      height: pxtorem(48);
-      border-bottom: 1px solid transparent;
-      font-family: var(--font-family__heading);
-      font-size: pxtorem(14);
-      font-weight: 400;
-    }
+    border-bottom: 1px solid var(--color__neutral-10);
   }
 
   & .navigation--subheading {
@@ -112,6 +97,29 @@
 
   & label {
     cursor: pointer;
+  }
+
+  @media (--large) {
+    position: static;
+    z-index: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    & h2 {
+      font-size: pxtorem(16);
+    }
+
+    & .shopping-options__filters__close {
+      display: none;
+    }
+
+    & .navigation--heading {
+      height: pxtorem(48);
+      font-family: var(--font-family__heading);
+      font-size: pxtorem(14);
+      font-weight: 400;
+      border-bottom: 1px solid transparent;
+    }
   }
 }
 
@@ -180,14 +188,16 @@
 .products__display-options-sort {
   & label {
     display: none;
-    @media (--large) {
+  }
+  & button {
+    margin-left: pxtorem(13);
+  }
+  @media (--large) {
+    & label {
       display: inline-block;
       width: pxtorem(50);
       margin-right: pxtorem(13);
     }
-  }
-  & button {
-    margin-left: pxtorem(13);
   }
 }
 
@@ -300,16 +310,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (--large) {
-    margin-top: pxtorem(24);
-    margin-bottom: pxtorem(24);
-  }
-
+  
   & ul {
     display: flex;
     & li {
       margin-right: 3px;
     }
+  }
+
+  @media (--large) {
+    margin-top: pxtorem(24);
+    margin-bottom: pxtorem(24);
   }
 }
 

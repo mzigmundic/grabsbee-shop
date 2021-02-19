@@ -87,6 +87,24 @@ address {
 	color: var(--color__secondary);
 }
 
+/* Custom Scrollbar */
+*::-webkit-scrollbar {
+	width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+	background-color: var(--color__neutral-5);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--color__neutral-25);
+  border-radius: 2px;
+  border: 1px solid var(--color__neutral-95);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color__neutral-10);
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {
