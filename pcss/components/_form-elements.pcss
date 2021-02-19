@@ -42,12 +42,15 @@ textarea {
 
 select {
   position: relative;
-  background-image: url("../images/chevron-down.svg");
+  background-image: url("../assets/img/common/chevron-down.svg");
   background-position: center right pxtorem(12px);
   background-size: pxtorem(10px);
   background-repeat: no-repeat;
   background-color: transparent;
+  border-color: var(--color-input__border-default);
   padding-right: pxtorem(24px);
+  width: fit-content;
+  cursor: pointer;
 
   &::-ms-expand {
     display: none;

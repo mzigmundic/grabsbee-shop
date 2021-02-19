@@ -5,26 +5,26 @@ button {
   color: inherit;
   background-color: transparent;
   cursor: pointer;
+  outline: none;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: 42px;
+  min-width: 42px;
   font-size: 14px;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  padding-left: pxtorem(12, 14);
-  padding-right: pxtorem(12, 14);
   @mixin ui-default-transition all;
 
   @media (--large) {
     font-size: 16px;
     height: 48px;
-    padding-left: pxtorem(32, 14);
-    padding-right: pxtorem(32, 14);
+    min-width: 48px;
   }
 }
 
@@ -32,6 +32,13 @@ button {
   color: var(--color-button__primary-text);
   background-color: var(--color-button__primary-background);
   border-color: var(--color-button__primary-border);
+  padding-left: pxtorem(12, 14);
+  padding-right: pxtorem(12, 14);
+
+  @media (--large) {
+    padding-left: pxtorem(32, 14);
+    padding-right: pxtorem(32, 14);
+  }
 
   &:hover {
     background-color: var(--color-button__primary-background-hover);
@@ -42,6 +49,13 @@ button {
   color: var(--color-button__secondary-text);
   background-color: var(--color-button__secondary-background);
   border-color: var(--color-button__secondary-border);
+  padding-left: pxtorem(12, 14);
+  padding-right: pxtorem(12, 14);
+
+  @media (--large) {
+    padding-left: pxtorem(32, 14);
+    padding-right: pxtorem(32, 14);
+  }
 
   &:hover {
     border-color: var(--color-button__secondary-border-hover);
@@ -66,5 +80,34 @@ button {
 
   & > span {
     margin-right: pxtorem(6.5);
+  }
+}
+
+.button--view-as {
+  color: var(--color__secondary);
+  border: 1px solid var(--color-button__secondary-border);
+  @mixin ui-default-transition all;
+
+  &.active {
+    background-color: var(--color__primary);
+    color: var(--color__white);
+  }
+}
+
+.button--icon {
+  min-width: 38px;
+  min-height: 42px;
+  padding: 5px;
+  font-size: pxtorem(18);
+}
+
+.button--pagination {
+  background-color: var(--color__neutral-10);
+  color: var(--color-text__default);
+  font-weight: 400;
+
+  &.active {
+    background-color: var(--color__secondary);
+    color: var(--color__white);
   }
 }

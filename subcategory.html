@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Web shop for buying frisbees" />
         <meta name="keywords" content="sport, frisbee" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
         <link href="./style.css" rel="stylesheet" type="text/css" />
         <title>Grabsbee | Subcategory</title>
@@ -21,15 +21,15 @@
                         <img src="./assets/img/common/desktop/logo.svg" alt="Grabsbee logo" />
                     </picture>
                 </a>
-                <ul class="header__options-list">
-                    <li class="header__options-list-item">
+                <ul class="header__options">
+                    <li class="header__options-item">
                         <button class="button--no-styles header__button" id="trigger-search-open">
                             <i class="icon-search"></i>
                             <span class="visually-hidden">Search Trigger</span>
                         </button>
-                        <div class="visually-hidden header__search">
+                        <div class="search">
                             <div class="container">
-                                <form class="header__search-form">
+                                <form class="search-form">
                                     <fieldset>
                                         <legend class="visually-hidden">Grabsbee search form</legend>
                                         <label for="search" class="visually-hidden"></label>
@@ -53,30 +53,30 @@
                         </div>
                     </li>
 
-                    <li class="header__options-list-item">
+                    <li class="header__options-item">
                         <button class="button--no-styles header__button" id="trigger-cart-open">
                             <i class="icon-shopping-cart"></i>
                             <span class="visually-hidden">CartTrigger</span>
                         </button>
-                        <section class="cart visually-hidden">
+                        <section class="cart">
                             <div class="container">
-                                <div class="cart__controls">
+                                <div class="cart__close">
                                     <button class="button--no-styles button--close" id="trigger-cart-close">
                                         <span>Close</span>
                                         <i class="icon-x-circle"></i>
                                     </button>
                                 </div>
                                 <h2 class="visually-hidden">Cart</h2>
-                                <div class="cart__empty">
-                                    <p class="cart__paragraph visually-hidden">You have no items in your shopping cart</p>
+                                <div class="cart__empty visually-hidden">
+                                    <p class="cart__paragraph">You have no items in your shopping cart</p>
                                 </div>
                                 <div class="cart__not-empty">
                                     <p class="cart__paragraph--uppercase">2 items in cart</p>
                                     <p class="cart__paragraph">Recently added items</p>
-                                    <ul class="cart__list">
-                                        <li class="cart__list-item">
-                                            <div class="cart__item-content">
-                                                <div class="cart__item-picture">
+                                    <ul class="cart__products">
+                                        <li class="cart__product">
+                                            <div class="cart__product-wrapper">
+                                                <div class="cart__product-picture">
                                                     <picture>
                                                         <source
                                                             srcset="./assets/img/common/desktop/cart-item-1.jpg"
@@ -86,20 +86,20 @@
                                                         <img src="./assets/img/common/desktop/cart-item-1.jpg" alt="Cart item 1" />
                                                     </picture>
                                                 </div>
-                                                <div class="cart__item-description">
+                                                <div class="cart__product-description">
                                                     <h3>
                                                         <a href="./product.html">Cart item name 1</a>
                                                     </h3>
                                                     <dl>
-                                                        <div class="cart__item-description-list-item">
+                                                        <div class="cart__product-description-feature">
                                                             <dt>Color</dt>
                                                             <dd>Black</dd>
                                                         </div>
-                                                        <div class="cart__item-description-list-item">
+                                                        <div class="cart__product-description-feature">
                                                             <dt>Price</dt>
                                                             <dd>10$</dd>
                                                         </div>
-                                                        <div class="cart__item-description-list-item cart__item-input">
+                                                        <div class="cart__product-description-feature--input">
                                                             <dt>Qty</dt>
                                                             <dd>
                                                                 <form>
@@ -114,7 +114,7 @@
                                                     </dl>
                                                 </div>
                                             </div>
-                                            <div class="cart__controls cart__controls--edit-trash">
+                                            <div class="cart__item-manager">
                                                 <button>
                                                     <span class="visually-hidden">Edit</span>
                                                     <i class="icon-edit"></i>
@@ -126,9 +126,9 @@
                                             </div>
                                         </li>
 
-                                        <li class="cart__list-item">
-                                            <div class="cart__item-content">
-                                                <div class="cart__item-picture">
+                                        <li class="cart__product">
+                                            <div class="cart__product-wrapper">
+                                                <div class="cart__product-picture">
                                                     <picture>
                                                         <source
                                                             srcset="./assets/img/common/desktop/cart-item-2.jpg"
@@ -138,20 +138,20 @@
                                                         <img src="./assets/img/common/desktop/cart-item-2.jpg" alt="Cart item 2" />
                                                     </picture>
                                                 </div>
-                                                <div class="cart__item-description">
+                                                <div class="cart__product-description">
                                                     <h3>
                                                         <a href="./product.html">Cart item name 2</a>
                                                     </h3>
                                                     <dl>
-                                                        <div class="cart__item-description-list-item">
+                                                        <div class="cart__product-description-feature">
                                                             <dt>Color</dt>
                                                             <dd>Black</dd>
                                                         </div>
-                                                        <div class="cart__item-description-list-item">
+                                                        <div class="cart__product-description-feature">
                                                             <dt>Price</dt>
                                                             <dd>10$</dd>
                                                         </div>
-                                                        <div class="cart__item-description-list-item cart__item-input">
+                                                        <div class="cart__product-description-feature--input">
                                                             <dt>Qty</dt>
                                                             <dd>
                                                                 <form>
@@ -166,7 +166,7 @@
                                                     </dl>
                                                 </div>
                                             </div>
-                                            <div class="cart__controls cart__controls--edit-trash">
+                                            <div class="cart__item-manager">
                                                 <button>
                                                     <span class="visually-hidden">Edit</span>
                                                     <i class="icon-edit"></i>
@@ -189,8 +189,8 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div class="cart__controls-bottom">
-                                        <a href="#" class="button--secondary" title="Back to Cart Page">View and edit cart</a>
+                                    <div class="cart__link-actions">
+                                        <a href="#" title="Back to Cart Page">View and edit cart</a>
                                         <button class="button button--primary">Proceed to checkout</button>
                                     </div>
                                 </div>
@@ -198,219 +198,237 @@
                         </section>
                     </li>
 
-                    <li class="header__options-list-item">
+                    <li class="header__options-item">
                         <button class="button--no-styles header__button" id="trigger-menu-open">
                             <i class="icon-menu"></i>
                             <span class="visually-hidden">Navigation Trigger</span>
                         </button>
-                        <nav class="main-nav visually-hidden">
+                        <nav class="nav">
                             <div class="container">
-                                <div class="main-nav__close">
+                                <div class="nav__close">
                                     <button class="button--no-styles header__button" id="trigger-menu-close">
                                         <span>Close</span>
                                         <i class="icon-x-circle"></i>
                                     </button>
                                 </div>
-                                <div class="main-nav__content">
-                                    <h2 class="">Menu</h2>
-                                    <ul class="accordion">
-                                        <li class="accordion__item-level-1">
-                                            <h3 class="accordion__item-level-1-heading">Frisbees</h3>
-                                            <div class="accordion__item-level-1-content visually-hidden">
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Frisbees Type 1</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Frisbee Type 1 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Frisbee Type 1 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Frisbee Type 1 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Frisbees Type 2</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Frisbee Type 2 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Frisbee Type 2 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Frisbee Type 2 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="visually-hidden">
-                                                    <h4>Contact Us</h4>
-                                                    <ul>
-                                                        <li>
-                                                            <address>Trg Slobode 6</address>
-                                                        </li>
-                                                        <li>
-                                                            <a href="tel:+385991231234">+385 99 123 1234</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
+                                <h2>Menu</h2>
+                                <ul class="nav__category-list">
+                                    <li>
+                                        <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">
+                                            Frisbees
+                                        </h3>
+                                        <ul class="accordion-content">
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Frisbees Type 1
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Frisbee Type 1 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Frisbee Type 1 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Frisbee Type 1 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Frisbees Type 2
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Frisbee Type 2 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Frisbee Type 2 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Frisbee Type 2 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="visually-hidden">
+                                                <h4>Contact Us</h4>
+                                                <ul>
+                                                    <li>
+                                                        <address>Trg Slobode 6</address>
+                                                    </li>
+                                                    <li>
+                                                        <a href="tel:+385991231234">+385 99 123 1234</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                        <li class="accordion__item-level-1">
-                                            <h3 class="accordion__item-level-1-heading">Gear</h3>
-                                            <div class="accordion__item-level-1-content visually-hidden">
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Gear Type 1</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gear Type 1 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gear Type 1 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gear Type 1 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Gear Type 2</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gear Type 2 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gear Type 2 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gear Type 2 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="visually-hidden">
-                                                    <h4>Contact Us</h4>
-                                                    <ul>
-                                                        <li>
-                                                            <address>Trg Slobode 6</address>
-                                                        </li>
-                                                        <li>
-                                                            <a href="tel:+385991231234">+385 99 123 1234</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
+                                    <li>
+                                        <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">Gear</h3>
+                                        <ul class="accordion-content">
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Gear Type 1
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gear Type 1 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gear Type 1 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gear Type 1 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Gear Type 2
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gear Type 2 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gear Type 2 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gear Type 2 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="visually-hidden">
+                                                <h4>Contact Us</h4>
+                                                <ul>
+                                                    <li>
+                                                        <address>Trg Slobode 6</address>
+                                                    </li>
+                                                    <li>
+                                                        <a href="tel:+385991231234">+385 99 123 1234</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                        <li class="accordion__item-level-1">
-                                            <h3 class="accordion__item-level-1-heading">Accessories</h3>
-                                            <div class="accordion__item-level-1-content visually-hidden">
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Accessories Type 1</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Accessories Type 1 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Accessories Type 1 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Accessories Type 1 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Accessories Type 2</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Accessories Type 2 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Accessories Type 2 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Accessories Type 2 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="visually-hidden">
-                                                    <h4>Contact Us</h4>
-                                                    <ul>
-                                                        <li>
-                                                            <address>Trg Slobode 6</address>
-                                                        </li>
-                                                        <li>
-                                                            <a href="tel:+385991231234">+385 99 123 1234</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
+                                    <li>
+                                        <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">
+                                            Accessories
+                                        </h3>
+                                        <ul class="accordion-content">
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Accessories Type 1
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Accessories Type 1 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Accessories Type 1 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Accessories Type 1 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Accessories Type 2
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Accessories Type 2 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Accessories Type 2 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Accessories Type 2 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="visually-hidden">
+                                                <h4>Contact Us</h4>
+                                                <ul>
+                                                    <li>
+                                                        <address>Trg Slobode 6</address>
+                                                    </li>
+                                                    <li>
+                                                        <a href="tel:+385991231234">+385 99 123 1234</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                        <li class="accordion__item-level-1">
-                                            <h3 class="accordion__item-level-1-heading">Gifts</h3>
-                                            <div class="accordion__item-level-1-content visually-hidden">
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Gifts Type 1</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gifts Type 1 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gifts Type 1 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gifts Type 1 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="accordion__item-level-2">
-                                                    <h4 class="accordion__item-level-2-heading">Gifts Type 2</h4>
-                                                    <ul class="accordion__item-level-2-content visually-hidden">
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gifts Type 2 Product 1</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gifts Type 2 Product 2</a>
-                                                        </li>
-                                                        <li class="accordion__item-level-3">
-                                                            <a href="./product.html">Gifts Type 2 Product 3</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="visually-hidden">
-                                                    <h4>Contact Us</h4>
-                                                    <ul>
-                                                        <li>
-                                                            <address>Trg Slobode 6</address>
-                                                        </li>
-                                                        <li>
-                                                            <a href="tel:+385991231234">+385 99 123 1234</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
+                                    <li>
+                                        <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">Gifts</h3>
+                                        <ul class="accordion-content">
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Gifts Type 1
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gifts Type 1 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gifts Type 1 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gifts Type 1 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <h4 class="navigation navigation--subheading dropdown dropdown--sign accordion-heading">
+                                                    Gifts Type 2
+                                                </h4>
+                                                <ul class="accordion-content">
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gifts Type 2 Product 1</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gifts Type 2 Product 2</a>
+                                                    </li>
+                                                    <li class="navigation navigation--item">
+                                                        <a href="./product.html">Gifts Type 2 Product 3</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="visually-hidden">
+                                                <h4>Contact Us</h4>
+                                                <ul>
+                                                    <li>
+                                                        <address>Trg Slobode 6</address>
+                                                    </li>
+                                                    <li>
+                                                        <a href="tel:+385991231234">+385 99 123 1234</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                        <li class="main-nav__list-item visually-hidden">
-                                            <h3>Contact Us</h3>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <li class="navigation__list-item visually-hidden">
+                                        <h3>Contact Us</h3>
+                                    </li>
+                                </ul>
                             </div>
                         </nav>
                     </li>
@@ -418,261 +436,312 @@
             </div>
         </header>
 
-        <main>
-            <div>
-                <ul>
+        <main class="subcategory-page">
+            <div class="container">
+                <ul class="breadcrumbs">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./subcategory.html">Category</a></li>
                     <li>Subcategory</li>
                 </ul>
-            </div>
 
-            <h1>Subcategory Name</h1>
-
-            <section>
-                <button>Shop by</button>
-                <div>
-                    <h2>Shopping options</h2>
-                    <ul>
-                        <li>
-                            <h3>Color</h3>
-                            <ul>
-                                <li>
-                                    <input type="checkbox" id="color-1" name="color-1" />
-                                    <label for="color-1">Color 1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="color-2" name="color-2" />
-                                    <label for="color-2">Color 2</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="color-3" name="color-3" />
-                                    <label for="color-3">Color 3</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="color-4" name="color-4" />
-                                    <label for="color-4">Color 4</label>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3>Size</h3>
-                            <ul>
-                                <li>
-                                    <input type="checkbox" id="size-1" name="size-1" />
-                                    <label for="size-1">Size 1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="size-2" name="size-2" />
-                                    <label for="size-2">Size 2</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="size-3" name="size-3" />
-                                    <label for="size-3">Size 3</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="size-4" name="size-4" />
-                                    <label for="size-4">Size 4</label>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3>Material</h3>
-                            <ul>
-                                <li>
-                                    <input type="checkbox" id="material-1" name="material-1" />
-                                    <label for="material-1">Material 1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="material-2" name="material-2" />
-                                    <label for="material-2">Material 2</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="material-3" name="material-3" />
-                                    <label for="material-3">Material 3</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="material-4" name="material-4" />
-                                    <label for="material-4">Material 4</label>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h3>Price</h3>
-                            <ul>
-                                <li>
-                                    <input type="range" id="price-range" name="price-range" />
-                                    <label for="price-range"></label>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <button>Close Shop by</button>
+                <div class="subcategory-page__heading">
+                    <h1>Ultimate frisbees</h1>
                 </div>
 
-                <div>
-                    <h2>Now shopping by</h2>
-                    <p><span>x</span>Style: <span>Full zip</span></p>
-                    <button>Clear all filters</button>
-                </div>
+                <section class="subcategory-page__section">
+                    <div class="shopping-options">
+                        <button class="button button--secondary visually-hidden--desktop" id="trigger-shopby-open">Shop by</button>
+                        <div class="shopping-options__filters">
+                            <div class="shopping-options__filters__close visually-hidden--desktop">
+                                <button class="button--no-styles header__button" id="trigger-shopby-close">
+                                    <span>Close</span>
+                                    <i class="icon-x-circle"></i>
+                                </button>
+                            </div>
+                            <h2>Shopping options</h2>
+                            <ul>
+                                <li>
+                                    <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">Color</h3>
+                                    <ul class="accordion-content">
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="color-1" name="color-1" />
+                                            <label for="color-1">Color 1</label>
+                                        </li>
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="color-2" name="color-2" />
+                                            <label for="color-2">Color 2</label>
+                                        </li>
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="color-3" name="color-3" />
+                                            <label for="color-3">Color 3</label>
+                                        </li>
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="color-4" name="color-4" />
+                                            <label for="color-4">Color 4</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">Size</h3>
+                                    <ul class="accordion-content">
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="size-1" name="size-1" />
+                                            <label for="size-1">Size 1</label>
+                                        </li>
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="size-2" name="size-2" />
+                                            <label for="size-2">Size 2</label>
+                                        </li>
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="size-3" name="size-3" />
+                                            <label for="size-3">Size 3</label>
+                                        </li>
+                                        <li class="navigation navigation--subheading">
+                                            <input type="checkbox" id="size-4" name="size-4" />
+                                            <label for="size-4">Size 4</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">Material</h3>
+                                    <ul class="accordion-content">
+                                        <li>
+                                            <input type="checkbox" id="material-1" name="material-1" />
+                                            <label for="material-1">Material 1</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="material-2" name="material-2" />
+                                            <label for="material-2">Material 2</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="material-3" name="material-3" />
+                                            <label for="material-3">Material 3</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="material-4" name="material-4" />
+                                            <label for="material-4">Material 4</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h3 class="navigation navigation--heading dropdown dropdown--chevron accordion-heading">Price</h3>
+                                    <ul class="accordion-content">
+                                        <li>
+                                            <input type="range" id="price-range" name="price-range" />
+                                            <label for="price-range"></label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 
-                <div>
-                    <ul>
-                        <li><button title="Grid View">View as grid</button></li>
-                        <li><button title="List View">View as list</button></li>
-                    </ul>
-                    <div>
-                        <label for="sort-by">Sort by:</label>
-                        <select name="sort-by" id="sort-by">
-                            <option value="best">Bestseller</option>
-                            <option value="price">Price</option>
-                        </select>
-                        <button title="Set Direction">Arrow</button>
+                        <div class="shopping-options__current visually-hidden--desktop">
+                            <h2>Now shopping by</h2>
+                            <p><button class="shopping-options__clear-filter">Style</button><span>Full zip</span></p>
+                            <button class="shopping-options__clear-all-filters">Clear all filters</button>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <h2>Products</h2>
-                    <ul>
-                        <li>
-                            <picture>
-                                <source />
-                                <img src="" alt="" />
-                            </picture>
-                            <div>
-                                <h3><a href="./product.html">Product 1</a></h3>
-                                <div>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>Num</span>
-                                </div>
-                                <p>As low as <strong>$21.99</strong></p>
-                                <form action="">
-                                    <input type="hidden" name="product" value="" />
-                                    <button type="submit">Add to Cart</button>
-                                </form>
-                                <ul>
-                                    <li>
-                                        <button>Heart</button>
-                                    </li>
-                                    <li>
-                                        <button>Chart</button>
-                                    </li>
-                                </ul>
+                    <div class="products">
+                        <div class="products__display-options">
+                            <ul class="products__display-options-view">
+                                <li>
+                                    <button class="button button--view-as active" title="Grid View" id="view-as-grid">
+                                        <i class="icon-grid"></i>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="button button--view-as" title="List View" id="view-as-list">
+                                        <i class="icon-list"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="products__display-options-sort">
+                                <label for="sort-by">Sort by:</label>
+                                <select name="sort-by" id="sort-by">
+                                    <option value="best">Bestseller</option>
+                                    <option value="price">Price</option>
+                                </select>
+                                <button title="Set Direction">
+                                    <i class="icon-arrow-down"></i>
+                                </button>
                             </div>
-                        </li>
-                        <li>
-                            <picture>
-                                <source />
-                                <img src="" alt="" />
-                            </picture>
-                            <div>
-                                <h3><a href="./product.html">Product 2</a></h3>
-                                <div>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>Num</span>
-                                </div>
-                                <p>As low as <strong>$21.99</strong></p>
-                                <form action="">
-                                    <input type="hidden" name="product" value="" />
-                                    <button type="submit">Add to Cart</button>
-                                </form>
-                                <ul>
-                                    <li>
-                                        <button>Heart</button>
-                                    </li>
-                                    <li>
-                                        <button>Chart</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <picture>
-                                <source />
-                                <img src="" alt="" />
-                            </picture>
-                            <div>
-                                <h3><a href="./product.html">Product 3</a></h3>
-                                <div>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>Num</span>
-                                </div>
-                                <p>As low as <strong>$21.99</strong></p>
-                                <form action="">
-                                    <input type="hidden" name="product" value="" />
-                                    <button type="submit">Add to Cart</button>
-                                </form>
-                                <ul>
-                                    <li>
-                                        <button>Heart</button>
-                                    </li>
-                                    <li>
-                                        <button>Chart</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <picture>
-                                <source />
-                                <img src="" alt="" />
-                            </picture>
-                            <div>
-                                <h3><a href="./product.html">Product 4</a></h3>
-                                <div>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>*</span>
-                                    <span>Num</span>
-                                </div>
-                                <p>As low as <strong>$21.99</strong></p>
-                                <form action="">
-                                    <input type="hidden" name="product" value="" />
-                                    <button type="submit">Add to Cart</button>
-                                </form>
-                                <ul>
-                                    <li>
-                                        <button>Heart</button>
-                                    </li>
-                                    <li>
-                                        <button>Chart</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+                        </div>
 
-            <div>
-                <ol>
-                    <li><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">Next</a></li>
-                </ol>
-                <div>
-                    <label for="show-num">Show</label>
-                    <select name="show-num" id="show-num">
-                        <option value="9">9</option>
-                        <option value="99" selected>99</option>
-                        <option value="999">999</option>
-                    </select>
-                </div>
+                        <div class="products__container">
+                            <h2 class="visually-hidden">Products</h2>
+                            <ul class="products__grid">
+                                <li class="product-item">
+                                    <picture class="product-item__image">
+                                        <source srcset="./assets/img/page-subcategory/desktop/item-1.jpg" media="(min-width: 1024px)" />
+                                        <source srcset="./assets/img/page-subcategory/mobile/item-1.jpg" />
+                                        <img src="./assets/img/page-subcategory/desktop/item-1.jpg" alt="Showcase Slider 1" />
+                                    </picture>
+                                    <div class="product-item__info">
+                                        <h3 class="product-item__name"><a href="./product.html">Product 1</a></h3>
+                                        <div class="product-item__rating">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <p class="product-item__price">As low as <strong>$21.99</strong></p>
+                                        <div class="product-item__actions">
+                                            <form action="">
+                                                <input type="hidden" name="product" value="" />
+                                                <button class="button button--primary" type="submit">Add to Cart</button>
+                                            </form>
+                                            <ul class="product-item__actions-secondary">
+                                                <li>
+                                                    <button class="button--icon" title="Add to wishlist">
+                                                        <i class="icon-heart"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button class="button--icon" title="Add to compare">
+                                                        <i class="icon-bar-chart"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <picture class="product-item__image">
+                                        <source srcset="./assets/img/page-subcategory/desktop/item-1.jpg" media="(min-width: 1024px)" />
+                                        <source srcset="./assets/img/page-subcategory/mobile/item-1.jpg" />
+                                        <img src="./assets/img/page-subcategory/desktop/item-1.jpg" alt="Showcase Slider 1" />
+                                    </picture>
+                                    <div class="product-item__info">
+                                        <h3 class="product-item__name"><a href="./product.html">Product 2</a></h3>
+                                        <div class="product-item__rating">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <p class="product-item__price">As low as <strong>$21.99</strong></p>
+                                        <div class="product-item__actions">
+                                            <form action="">
+                                                <input type="hidden" name="product" value="" />
+                                                <button class="button button--primary" type="submit">Add to Cart</button>
+                                            </form>
+                                            <ul class="product-item__actions-secondary">
+                                                <li>
+                                                    <button class="button--icon" title="Add to wishlist">
+                                                        <i class="icon-heart"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button class="button--icon" title="Add to compare">
+                                                        <i class="icon-bar-chart"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <picture class="product-item__image">
+                                        <source srcset="./assets/img/page-subcategory/desktop/item-1.jpg" media="(min-width: 1024px)" />
+                                        <source srcset="./assets/img/page-subcategory/mobile/item-1.jpg" />
+                                        <img src="./assets/img/page-subcategory/desktop/item-1.jpg" alt="Showcase Slider 1" />
+                                    </picture>
+                                    <div class="product-item__info">
+                                        <h3 class="product-item__name"><a href="./product.html">Product 3</a></h3>
+                                        <div class="product-item__rating">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <p class="product-item__price">As low as <strong>$21.99</strong></p>
+                                        <div class="product-item__actions">
+                                            <form action="">
+                                                <input type="hidden" name="product" value="" />
+                                                <button class="button button--primary" type="submit">Add to Cart</button>
+                                            </form>
+                                            <ul class="product-item__actions-secondary">
+                                                <li>
+                                                    <button class="button--icon" title="Add to wishlist">
+                                                        <i class="icon-heart"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button class="button--icon" title="Add to compare">
+                                                        <i class="icon-bar-chart"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="product-item">
+                                    <picture class="product-item__image">
+                                        <source srcset="./assets/img/page-subcategory/desktop/item-1.jpg" media="(min-width: 1024px)" />
+                                        <source srcset="./assets/img/page-subcategory/mobile/item-1.jpg" />
+                                        <img src="./assets/img/page-subcategory/desktop/item-1.jpg" alt="Showcase Slider 1" />
+                                    </picture>
+                                    <div class="product-item__info">
+                                        <h3 class="product-item__name"><a href="./product.html">Product 4</a></h3>
+                                        <div class="product-item__rating">
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <i class="icon-star"></i>
+                                            <span>2</span>
+                                        </div>
+                                        <p class="product-item__price">As low as <strong>$21.99</strong></p>
+                                        <div class="product-item__actions">
+                                            <form action="">
+                                                <input type="hidden" name="product" value="" />
+                                                <button class="button button--primary" type="submit">Add to Cart</button>
+                                            </form>
+                                            <ul class="product-item__actions-secondary">
+                                                <li>
+                                                    <button class="button--icon" title="Add to wishlist">
+                                                        <i class="icon-heart"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button class="button--icon" title="Add to compare">
+                                                        <i class="icon-bar-chart"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="products__pagination">
+                            <ul>
+                                <li><span class="button button--pagination active">1</span></li>
+                                <li><a href="#" class="button button--pagination">2</a></li>
+                                <li><a href="#" class="button button--pagination">3</a></li>
+                                <li>
+                                    <a href="#" class="button button--pagination"><i class="icon-arrow-right"></i></a>
+                                </li>
+                            </ul>
+                            <div>
+                                <label for="show-num">Show:</label>
+                                <select name="show-num" id="show-num">
+                                    <option value="9">9</option>
+                                    <option value="99" selected>99</option>
+                                    <option value="999">999</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
 
@@ -694,41 +763,39 @@
 
             <section class="footer__summaries">
                 <div class="container footer__summaries-content">
-                    <details class="footer__summaries-details">
-                        <summary class="footer__summaries-details-summary">
+                    <details class="footer__details">
+                        <summary class="footer__details-head">
                             <h2>Categories</h2>
-                            <i class="icon-chevron-down"></i>
                         </summary>
-                        <ul class="footer__summaries-details-list">
-                            <li class="footer__summaries-details-list-item">
+                        <ul class="footer__details-body">
+                            <li class="footer__details-item">
                                 <a href="./subcategory.html">Frisbee</a>
                             </li>
-                            <li class="footer__summaries-details-list-item">
+                            <li class="footer__details-item">
                                 <a href="./subcategory.html">Gear</a>
                             </li>
-                            <li class="footer__summaries-details-list-item">
+                            <li class="footer__details-item">
                                 <a href="./subcategory.html">Accessories</a>
                             </li>
-                            <li class="footer__summaries-details-list-item">
+                            <li class="footer__details-item">
                                 <a href="./subcategory.html">Gifts</a>
                             </li>
                         </ul>
                     </details>
-                    <details class="footer__summaries-details">
-                        <summary class="footer__summaries-details-summary">
+                    <details class="footer__details">
+                        <summary class="footer__details-head">
                             <h2>Contact Us</h2>
-                            <i class="icon-chevron-down"></i>
                         </summary>
-                        <ul class="footer__summaries-details-list">
-                            <li class="footer__summaries-details-list-item">
+                        <ul class="footer__details-body">
+                            <li class="footer__details-item">
                                 <i class="icon-map-pin"></i>
                                 <address>Trg Slobode 6</address>
                             </li>
-                            <li class="footer__summaries-details-list-item">
+                            <li class="footer__details-item">
                                 <i class="icon-phone"></i>
                                 <a href="tel:+385991231234">+3851231234</a>
                             </li>
-                            <li class="footer__summaries-details-list-item">
+                            <li class="footer__details-item">
                                 <i class="icon-mail"></i>
                                 <a href="mailto:grabsbee@gmail.com">grabsbee@gmail.com</a>
                             </li>

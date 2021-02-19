@@ -11,26 +11,37 @@ const cartContainer = document.querySelector(".cart");
 /* Main Navigation */
 const triggerNavigationOpen = document.getElementById("trigger-menu-open");
 const triggerNavigationClose = document.getElementById("trigger-menu-close");
-const navigationContainer = document.querySelector(".navigation");
+const navigationContainer = document.querySelector(".nav");
 
 /* Accordion */
 const accordionHeadings = Array.from(document.querySelectorAll(".accordion-heading"));
 
-/* Showcase Elements */
+/* Footer */
+const footerDetails = Array.from(document.querySelectorAll(".footer__details"));
+
+/* Home Page */
 const showcaseList = document.querySelector(".showcase__items");
 const showcaseArrowLeft = document.getElementById("showcase-arrow-left");
 const showcaseArrowRight = document.getElementById("showcase-arrow-right");
 const showcaseIndicators = Array.from(document.querySelectorAll(".showcase__indicator-item"));
 
-/* Footer */
-const footerDetails = Array.from(document.querySelectorAll(".footer__details"));
+/* Subcategory Page */
+const triggerShopByOpen = document.getElementById("trigger-shopby-open");
+const triggerShopByClose = document.getElementById("trigger-shopby-close");
+const shoppingOptionsFilters = document.querySelector(".shopping-options__filters");
+const viewAsGrid = document.getElementById("view-as-grid");
+const viewAsList = document.getElementById("view-as-list");
+const productsGrid = document.querySelector(".products__grid");
 
 /* Script Variables */
-const mediaQuery = window.matchMedia("(min-width: 1024px)");
 const breakPoint = 1024;
-const numOfPics = showcaseList.querySelectorAll(".showcase__item").length;
+const mediaQuery = window.matchMedia(`(min-width: ${breakPoint}px)`);
+let numOfPics;
+if (showcaseList) {
+    numOfPics = showcaseList.querySelectorAll(".showcase__item").length;
+}
+
 let showcaseIndex;
-let browserWidth;
 handleWidescreenChange(mediaQuery);
 checkShowcaseAppereance();
 setEventListeners();
@@ -67,7 +78,7 @@ function preventer(event) {
 function handleShowcaseArrowRight() {
     if (showcaseIndex < numOfPics - 1) {
         showcaseIndex++;
-        showcaseList.style.transform = `translateX(-${showcaseIndex * browserWidth}px)`;
+        showcaseList.style.transform = `translateX(-${showcaseIndex * document.body.clientWidth}px)`;
         deactivate(showcaseIndicators[showcaseIndex - 1]);
         activate(showcaseIndicators[showcaseIndex]);
     }
@@ -76,7 +87,7 @@ function handleShowcaseArrowRight() {
 function handleShowcaseArrowLeft() {
     if (showcaseIndex > 0) {
         showcaseIndex--;
-        showcaseList.style.transform = `translateX(-${showcaseIndex * browserWidth}px)`;
+        showcaseList.style.transform = `translateX(-${showcaseIndex * document.body.clientWidth}px)`;
         deactivate(showcaseIndicators[showcaseIndex + 1]);
         activate(showcaseIndicators[showcaseIndex]);
     }
@@ -108,7 +119,6 @@ function handleAccordion(e, accordionHead) {
 }
 
 function checkShowcaseAppereance() {
-    browserWidth = document.body.clientWidth;
     showcaseIndex = 0;
     if (showcaseList) {
         showcaseList.style.transform = `translateX(0)`;
@@ -122,11 +132,6 @@ function checkShowcaseAppereance() {
 function setEventListeners() {
     window.addEventListener("resize", checkShowcaseAppereance);
     mediaQuery.addEventListener("change", handleWidescreenChange);
-
-    if (showcaseList) {
-        showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
-        showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
-    }
 
     triggerSearchOpen.addEventListener("click", () => activate(searchContainer));
     triggerSearchClose.addEventListener("click", () => deactivate(searchContainer));
@@ -148,6 +153,35 @@ function setEventListeners() {
         deactivate(navigationContainer);
         enableBodyScroll();
     });
+
+    if (showcaseList) {
+        showcaseArrowRight.addEventListener("click", handleShowcaseArrowRight);
+        showcaseArrowLeft.addEventListener("click", handleShowcaseArrowLeft);
+    }
+
+    if (triggerShopByOpen && triggerShopByClose) {
+        triggerShopByOpen.addEventListener("click", () => {
+            activate(shoppingOptionsFilters);
+            disableBodyScroll();
+        });
+        triggerShopByClose.addEventListener("click", () => {
+            deactivate(shoppingOptionsFilters);
+            enableBodyScroll();
+        });
+    }
+
+    if (viewAsGrid && viewAsList) {
+        viewAsGrid.addEventListener("click", () => {
+            productsGrid.classList.remove("list");
+            deactivate(viewAsList);
+            activate(viewAsGrid);
+        });
+        viewAsList.addEventListener("click", () => {
+            productsGrid.classList.add("list");
+            deactivate(viewAsGrid);
+            activate(viewAsList);
+        });
+    }
 
     accordionHeadings.forEach((ah) => {
         ah.addEventListener("click", (e) => handleAccordion(e, ah));
