@@ -33,6 +33,10 @@ const viewAsGrid = document.getElementById("view-as-grid");
 const viewAsList = document.getElementById("view-as-list");
 const productsGrid = document.querySelector(".products__grid");
 
+/* Category Page */
+const descriptionTabHeadings = document.querySelectorAll("[data-tab-heading]");
+const descriptionTabContents = document.querySelectorAll("[data-tab-content]");
+
 /* Script Variables */
 const breakPoint = 1024;
 const mediaQuery = window.matchMedia(`(min-width: ${breakPoint}px)`);
@@ -112,19 +116,19 @@ function handleWidescreenChange(e) {
     }
 }
 
-function handleAccordion(e, accordionHead) {
-    accordionContent = accordionHead.parentElement.querySelector(":scope > .accordion-content");
+function handleAccordion(e) {
+    accordionContent = this.parentElement.querySelector(":scope > .accordion-content");
     if (
-        accordionHead.contains(e.target) &&
-        !accordionHead.classList.contains("active") &&
-        ((!accordionHead.parentElement.classList.contains("nav__category-item") &&
-            !accordionHead.parentElement.classList.contains("nav__subcategory-item")) ||
+        this.contains(e.target) &&
+        !this.classList.contains("active") &&
+        ((!this.parentElement.classList.contains("nav__category-item") &&
+            !this.parentElement.classList.contains("nav__subcategory-item")) ||
             !mediaQuery.matches)
     ) {
-        activate(accordionHead);
+        activate(this);
         show(accordionContent);
-    } else if (accordionHead.contains(e.target)) {
-        deactivate(accordionHead);
+    } else if (this.contains(e.target)) {
+        deactivate(this);
         hide(accordionContent);
     }
 }
@@ -138,6 +142,18 @@ function checkShowcaseAppereance() {
         });
         activate(showcaseIndicators[0]);
     }
+}
+
+function handleDescriptionTab() {
+    const th = document.querySelector(this.dataset.tabHeading);
+    descriptionTabContents.forEach((tc) => {
+        deactivate(tc);
+    });
+    descriptionTabHeadings.forEach((t) => {
+        deactivate(t);
+    });
+    activate(this);
+    activate(th);
 }
 
 function setEventListeners() {
@@ -163,6 +179,10 @@ function setEventListeners() {
     triggerNavigationClose.addEventListener("click", () => {
         deactivate(navigationContainer);
         enableBodyScroll();
+    });
+
+    accordionHeadings.forEach((ah) => {
+        ah.addEventListener("click", handleAccordion);
     });
 
     if (showcaseList) {
@@ -194,7 +214,9 @@ function setEventListeners() {
         });
     }
 
-    accordionHeadings.forEach((ah) => {
-        ah.addEventListener("click", (e) => handleAccordion(e, ah));
-    });
+    if (descriptionTabHeadings) {
+        descriptionTabHeadings.forEach((tab) => {
+            tab.addEventListener("click", handleDescriptionTab);
+        });
+    }
 }

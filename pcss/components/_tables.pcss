@@ -2,4 +2,26 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  margin-bottom: pxtorem(22);
+
+  & tbody {
+    display: table;
+    width: 100%;
+  }
+
+  & tr {
+    height: pxtorem(42);
+    @media (--large) {
+      height: pxtorem(48);
+    }
+  }
+
+  & tr:nth-child(even) {
+    background-color: var(--color__neutral-5);
+  }
+
+  & td {
+    padding: pxtorem(12);
+  }
+
 }
