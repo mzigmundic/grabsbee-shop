@@ -3,6 +3,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Basic font setup */
 body {
   font-family: var(--font-family__body);
   font-size: 14px;
@@ -13,6 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Basic Typography */
 h1,
 h2,
 h3,
@@ -89,10 +91,12 @@ p {
 }
 
 a {
+  color: var(--color-link__default);
   @mixin ui-default-transition color;
   cursor: pointer;
 
   &:hover {
+    color: var(--color__secondary-10);
   }
 }
 
@@ -100,6 +104,7 @@ ul {
   @mixin list-reset;
 }
 
+/* Icons Setup */
 @font-face {
   font-family: "Inchoo-Icons";
   src: url("assets/fonts/Inchoo-Icons.eot?s9olwx");

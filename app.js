@@ -33,7 +33,7 @@ const viewAsGrid = document.getElementById("view-as-grid");
 const viewAsList = document.getElementById("view-as-list");
 const productsGrid = document.querySelector(".products__grid");
 
-/* Category Page */
+/* Product Page */
 const descriptionTabHeadings = document.querySelectorAll("[data-tab-heading]");
 const descriptionTabContents = document.querySelectorAll("[data-tab-content]");
 
@@ -41,10 +41,6 @@ const descriptionTabContents = document.querySelectorAll("[data-tab-content]");
 const breakPoint = 1024;
 const mediaQuery = window.matchMedia(`(min-width: ${breakPoint}px)`);
 let showcaseIndex;
-let numOfPics;
-if (showcaseList) {
-    numOfPics = showcaseList.querySelectorAll(".showcase__item").length;
-}
 
 handleWidescreenChange(mediaQuery);
 checkShowcaseAppereance();
@@ -80,7 +76,7 @@ function preventer(event) {
 }
 
 function handleShowcaseArrowRight() {
-    if (showcaseIndex < numOfPics - 1) {
+    if (showcaseIndex < showcaseList.querySelectorAll(".showcase__item").length - 1) {
         showcaseIndex++;
         showcaseList.style.transform = `translateX(-${showcaseIndex * document.body.clientWidth}px)`;
         deactivate(showcaseIndicators[showcaseIndex - 1]);
@@ -101,7 +97,7 @@ function handleWidescreenChange(e) {
     if (e.matches) {
         footerDetails.forEach((fd) => {
             fd.open = true;
-            fd.addEventListener("click", preventer);
+            fd.querySelector(".footer__details-head").addEventListener("click", preventer);
         });
         accordionHeadings.forEach((ah) => {
             deactivate(ah);
@@ -111,7 +107,7 @@ function handleWidescreenChange(e) {
     } else {
         footerDetails.forEach((fd) => {
             fd.open = false;
-            fd.removeEventListener("click", preventer);
+            fd.querySelector(".footer__details-head").removeEventListener("click", preventer);
         });
     }
 }

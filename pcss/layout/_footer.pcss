@@ -56,7 +56,7 @@
     margin-bottom: pxtorem(21);
 
     @media (--large) {
-      width: 25%;
+      width: pxtorem(365);
       margin-right: pxtorem(12);
     }
   }
@@ -75,7 +75,7 @@
 
 .footer__summaries {
   background-color: var(--color__primary);
-  color: var(--color__white);
+  color: var(--color-text__invert);
   
   @media (--large) {
     height: pxtorem(191);
@@ -146,7 +146,7 @@
 .footer__details-item {
   height: pxtorem(21);
   & a {
-    color: var(--color__white);
+    color: var(--color-text__invert);
     text-decoration: none;
   }
 
@@ -162,7 +162,7 @@
 .footer__copyright {
   height: pxtorem(42);
   background-color: var(--color__black);
-  color: var(--color__white);
+  color: var(--color-text__invert);
   display: flex;
   justify-content: center;
   align-items: center;

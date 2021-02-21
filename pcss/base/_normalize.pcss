@@ -47,7 +47,6 @@ ol[class] {
 a:not([class]) {
   text-decoration-skip-ink: auto;
   text-decoration: none;
-  color: var(--color-link__default);
 }
 
 /* Make images easier to work with */
@@ -64,10 +63,10 @@ select {
   font: inherit;
 }
 
+/* Description list setup */
 dt, dd {
   display: inline-block;
 }
-
 dt {
   font-weight: bold;
 
@@ -76,6 +75,7 @@ dt {
   }
 }
 
+/* Address setup */
 address {
   font-style: normal;
   display: inline;
@@ -87,22 +87,30 @@ address {
 	color: var(--color__secondary);
 }
 
-/* Custom Scrollbar */
+/* Custom scrollbar for large screens */
 *::-webkit-scrollbar {
-	width: 12px;
+	@media (--large) {
+    width: 12px;
+  }
 }
 
 *::-webkit-scrollbar-track {
-	background-color: var(--color__neutral-5);
+	@media (--large) {
+    background-color: var(--color__neutral-5);
+  }
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: var(--color__neutral-60);
-  border-radius: 2px;
-  border: 1px solid var(--color__neutral-5);
+	@media (--large) {
+    background-color: var(--color__neutral-60);
+    border-radius: 2px;
+    border: 1px solid var(--color__neutral-5);
+  }
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color__neutral-25);
+  @media (--large) {
+    background-color: var(--color__neutral-25);
+  }
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

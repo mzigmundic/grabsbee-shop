@@ -102,8 +102,9 @@
   @media (--large) {
     position: static;
     z-index: 0;
+    padding-right: pxtorem(30);
     padding-left: 0;
-    padding-right: 0;
+    width: pxtorem(320);
 
     & h2 {
       font-size: pxtorem(16);
@@ -157,7 +158,7 @@
   }
 
   & .shopping-options__clear-all-filters {
-    color: var(--color__secondary);
+    color: var(--color-link__default);
   }
 }
 
@@ -237,9 +238,6 @@
     text-transform: uppercase;
     @media (--large) {
       font-size: pxtorem(14);
-    }
-    & a {
-      color: var(--color__secondary);
     }
   }
 
