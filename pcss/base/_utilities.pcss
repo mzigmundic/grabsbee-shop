@@ -25,3 +25,34 @@
 .details-disabled-on-large {
   pointer-events: none;
 }
+
+.message {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: pxtorem(10);
+  transform: translateX(-50%);
+  min-width: pxtorem(300);
+  padding: pxtorem(20);
+  background-color: var(--color__white);
+  box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.4);
+  z-index: 5;
+
+  @media (--large) {
+    min-width: pxtorem(500);
+  }
+  
+  & p {
+    color: var(--color__success);
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  &.error {
+    & p {
+      color: var(--color__error);
+    }
+  }
+}

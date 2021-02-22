@@ -87,7 +87,7 @@
                                                     </picture>
                                                 </div>
                                                 <div class="cart__product-description">
-                                                    <h3>
+                                                    <h3 class="cart__product-description-name">
                                                         <a href="./product.html">Cart item name 1</a>
                                                     </h3>
                                                     <dl>
@@ -119,7 +119,7 @@
                                                     <span class="visually-hidden">Edit</span>
                                                     <i class="icon-edit"></i>
                                                 </button>
-                                                <button>
+                                                <button class="remove-from-cart">
                                                     <span class="visually-hidden">Trash</span>
                                                     <i class="icon-trash"></i>
                                                 </button>
@@ -139,7 +139,7 @@
                                                     </picture>
                                                 </div>
                                                 <div class="cart__product-description">
-                                                    <h3>
+                                                    <h3 class="cart__product-description-name">
                                                         <a href="./product.html">Cart item name 2</a>
                                                     </h3>
                                                     <dl>
@@ -171,7 +171,7 @@
                                                     <span class="visually-hidden">Edit</span>
                                                     <i class="icon-edit"></i>
                                                 </button>
-                                                <button>
+                                                <button class="remove-from-cart">
                                                     <span class="visually-hidden">Trash</span>
                                                     <i class="icon-trash"></i>
                                                 </button>
@@ -471,7 +471,7 @@
 
                     <div class="product-info">
                         <h1 class="product-info__heading">
-                            Product Name | Lorem ipsum dolor sit amet consectetur, adipisicing elit dolorem deleniti
+                            <span>Freesbee Product</span> | Lorem ipsum dolor sit amet consectetur, adipisicing elit dolorem deleniti
                         </h1>
                         <ul class="product-info__specs">
                             <li>In Stock</li>
@@ -479,7 +479,7 @@
                         </ul>
                         <a href="#">Be the first to review this product</a>
                         <p class="product-info__price h2">As low as: <strong>$89.99</strong></p>
-                        <form class="product-info__action">
+                        <form class="product-info__action" action="">
                             <div class="product-info__action-fieldsets">
                                 <fieldset class="product-info__action-color">
                                     <legend>Color</legend>
@@ -496,17 +496,17 @@
                                     <input name="qty" type="number" value="1" />
                                 </fieldset>
                             </div>
-                            <button class="button button--primary">Add to cart</button>
+                            <button class="button button--primary" type="submit" id="add-to-cart">Add to cart</button>
                         </form>
                         <ul class="product-info__actions-secondary">
                             <li>
-                                <button title="Add to wishlist">
+                                <button title="Add to wishlist" class="button-wishlist">
                                     <i class="icon-heart"></i>
                                     <span>Add to wishlist</span>
                                 </button>
                             </li>
                             <li>
-                                <button title="Add to compare">
+                                <button title="Add to compare" class="button-compare">
                                     <i class="icon-bar-chart"></i>
                                     <span>Add to compare</span>
                                 </button>
@@ -576,11 +576,11 @@
                 <div class="container footer__newsletter-content">
                     <h2>Newsletter</h2>
                     <p><span>Sign up for our newsletter and be the first to find out about new products, discounts and more</span></p>
-                    <form>
+                    <form action="" class="footer__newsletter-action">
                         <fieldset class="newsletter-form-fieldset">
                             <legend class="visually-hidden">Grabsbee Newsleter Form</legend>
                             <label for="newsletter"></label>
-                            <input name="newsletter" type="text" placeholder="Placeholder" />
+                            <input name="newsletter" type="email" placeholder="Email" />
                             <button class="button button--primary">Subscribe</button>
                         </fieldset>
                     </form>
