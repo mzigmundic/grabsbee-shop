@@ -30,6 +30,7 @@ const Application = (function () {
         triggerShopByOpen: document.getElementById("trigger-shopby-open"),
         triggerShopByClose: document.getElementById("trigger-shopby-close"),
         shoppingOptionsFilters: document.querySelector(".shopping-options__filters"),
+        shoppingOptionsCurrent: document.querySelector(".shopping-options__current"),
         viewAsGrid: document.getElementById("view-as-grid"),
         viewAsList: document.getElementById("view-as-list"),
         productsGrid: document.querySelector(".products__grid"),
@@ -95,6 +96,16 @@ const Application = (function () {
                 deactivate(DOM.shoppingOptionsFilters);
                 enableBodyScroll();
             });
+        }
+
+        // Subcategory page add new filter
+        if (DOM.shoppingOptionsFilters) {
+            DOM.shoppingOptionsFilters.addEventListener("click", handleAddFilter);
+        }
+
+        // Subcategory page remove filters
+        if (DOM.shoppingOptionsCurrent) {
+            DOM.shoppingOptionsCurrent.addEventListener("click", handleRemoveFilter);
         }
 
         // Subcategory page View as Grid / View as List
@@ -257,7 +268,7 @@ const Application = (function () {
     // Remove from Cart handler
     const handleRemoveFromCartButton = function (e) {
         const name = this.parentElement.parentElement.querySelector(".cart__product-description-name a").innerText;
-        showMessage(`${formatName(name)} Removed from cart`, false);
+        showMessage(`${formatName(name)} Removed from cart!`);
     };
 
     // Newsletter submit handler
@@ -310,10 +321,39 @@ const Application = (function () {
         showMessage(`${productName} added to cart!`);
     };
 
+    // Subcategory page add filter
+    const handleAddFilter = function (e) {
+        if (e.target.tagName == "LABEL") {
+            const filterCategory = formatName(e.target.parentElement.parentElement.previousElementSibling.innerText);
+            const filterSubcategory = formatName(e.target.innerText);
+            DOM.shoppingOptionsCurrent.classList.remove("visually-hidden");
+            DOM.shoppingOptionsCurrent.querySelector(".shopping-options__clear-filter").innerText = filterCategory;
+            DOM.shoppingOptionsCurrent.querySelector(".shopping-options__current-filter").innerText = filterSubcategory;
+            deactivate(e.target.parentElement.parentElement.previousElementSibling);
+            hide(e.target.parentElement.parentElement);
+            deactivate(DOM.shoppingOptionsFilters);
+            enableBodyScroll();
+            showMessage(`Now shopping by: ${filterSubcategory}`);
+        }
+    };
+
+    // Subcategory page remove filters
+    const handleRemoveFilter = function (e) {
+        if (
+            e.target.classList.contains("shopping-options__clear-filter") ||
+            e.target.classList.contains("shopping-options__clear-all-filters")
+        ) {
+            DOM.shoppingOptionsCurrent.classList.add("visually-hidden");
+            showMessage("Filter removed");
+        }
+    };
+
     // Product page Add to Cart handler
     const handleProductPageForm = function (e) {
         e.preventDefault();
         const productName = this.parentElement.querySelector(".product-info__heading span").innerText;
+        const price = this.parentElement.querySelector(".product-info__price strong").innerText.replace("$", "");
+        console.log(price);
         const selectedColor = getProductColor(Array.from(this.color));
         const quantity = this.qty.value;
         if (!selectedColor && quantity < 1) {
@@ -323,7 +363,9 @@ const Application = (function () {
         } else if (quantity < 1) {
             showMessage("Please select reasonable quantity", false);
         } else {
-            const successMessage = `${quantity} ${selectedColor} ${productName}${quantity > 1 ? "s" : ""} added to cart!`;
+            const successMessage = `${quantity} ${selectedColor} ${productName}${quantity > 1 ? "s" : ""} with total price of ${
+                quantity * price
+            } added to cart!`;
             showMessage(successMessage);
         }
     };
