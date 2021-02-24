@@ -35,6 +35,7 @@ const Application = (function () {
         viewAsList: document.getElementById("view-as-list"),
         productsGrid: document.querySelector(".products__grid"),
         subcategoryForms: Array.from(document.querySelectorAll(".product-item__action")),
+        productImages: document.querySelector(".product-images"),
         productForm: document.querySelector(".product-info__action"),
         descriptionTabHeadings: document.querySelectorAll("[data-tab-heading]"),
         descriptionTabContents: document.querySelectorAll("[data-tab-content]"),
@@ -54,7 +55,9 @@ const Application = (function () {
         // Cart
         DOM.triggerCartOpen.addEventListener("click", () => {
             activate(DOM.cartContainer);
-            disableBodyScroll();
+            if (!window.matchMedia(`(min-width: ${appVariables.breakPoint}px)`).matches) {
+                disableBodyScroll();
+            }
         });
         DOM.triggerCartClose.addEventListener("click", () => {
             deactivate(DOM.cartContainer);
@@ -127,6 +130,11 @@ const Application = (function () {
             DOM.subcategoryForms.forEach((subcategoryForm) => {
                 subcategoryForm.addEventListener("submit", handleSubcategoryPageForm);
             });
+        }
+
+        // Product page mini gallery
+        if (DOM.productImages) {
+            DOM.productImages.addEventListener("click", selectMainImage);
         }
 
         // Product page Add to Cart
@@ -267,7 +275,10 @@ const Application = (function () {
 
     // Remove from Cart handler
     const handleRemoveFromCartButton = function (e) {
-        const name = this.parentElement.parentElement.querySelector(".cart__product-description-name a").innerText;
+        const cartItem = this.parentElement.parentElement;
+        const name = cartItem.querySelector(".cart__product-description-name a").innerText;
+        cartItem.remove();
+        activate(DOM.cartContainer);
         showMessage(`${formatName(name)} Removed from cart!`);
     };
 
@@ -348,12 +359,22 @@ const Application = (function () {
         }
     };
 
+    // Product page select image from list of images and display as main
+    const selectMainImage = function (e) {
+        if (e.target.classList.contains("product-images__list-image")) {
+            DOM.productImages.querySelector(".product-images__main-image").src = e.target.src;
+            Array.from(DOM.productImages.querySelectorAll(".product-images__list-image")).forEach((img) => {
+                deactivate(img);
+            });
+            activate(e.target);
+        }
+    };
+
     // Product page Add to Cart handler
     const handleProductPageForm = function (e) {
         e.preventDefault();
         const productName = this.parentElement.querySelector(".product-info__heading span").innerText;
         const price = this.parentElement.querySelector(".product-info__price strong").innerText.replace("$", "");
-        console.log(price);
         const selectedColor = getProductColor(Array.from(this.color));
         const quantity = this.qty.value;
         if (!selectedColor && quantity < 1) {
