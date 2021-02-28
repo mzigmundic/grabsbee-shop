@@ -44,9 +44,7 @@ const Application = (function () {
     // Private Methods
     // Set event listeners
     const setEventListeners = function () {
-        // Window
-        window.addEventListener("resize", checkShowcaseAppereance);
-        window.matchMedia(`(min-width: ${appVariables.breakPoint}px)`).addEventListener("change", handleWidescreen);
+        window.matchMedia(`(min-width: ${appVariables.breakPoint}px)`).addEventListener("change", checkBrowserWidth);
 
         // Search
         DOM.triggerSearchOpen.addEventListener("click", () => activate(DOM.searchContainer));
@@ -63,7 +61,6 @@ const Application = (function () {
             deactivate(DOM.cartContainer);
             enableBodyScroll();
         });
-        DOM.removeFromCartButtons.forEach((button) => button.addEventListener("click", handleRemoveFromCartButton));
 
         // Main Navigation
         DOM.triggerNavigationOpen.addEventListener("click", () => {
@@ -128,7 +125,7 @@ const Application = (function () {
         // Subcategory page Add to Cart
         if (DOM.subcategoryForms) {
             DOM.subcategoryForms.forEach((subcategoryForm) => {
-                subcategoryForm.addEventListener("submit", handleSubcategoryPageForm);
+                subcategoryForm.addEventListener("submit", handleSubcategoryPageAddToCart);
             });
         }
 
@@ -139,7 +136,7 @@ const Application = (function () {
 
         // Product page Add to Cart
         if (DOM.productForm) {
-            DOM.productForm.addEventListener("submit", handleProductPageForm);
+            DOM.productForm.addEventListener("submit", handleProductPageAddToCart);
         }
 
         // Product page Description Tabs
@@ -236,7 +233,7 @@ const Application = (function () {
     };
 
     // Close footer details and accordions when browser width hits small; Open footer on large screens
-    const handleWidescreen = function (e) {
+    const checkBrowserWidth = function (e) {
         if (e.matches) {
             DOM.footerDetails.forEach((fd) => {
                 fd.open = true;
@@ -273,15 +270,6 @@ const Application = (function () {
         }
     };
 
-    // Remove from Cart handler
-    const handleRemoveFromCartButton = function (e) {
-        const cartItem = this.parentElement.parentElement;
-        const name = cartItem.querySelector(".cart__product-description-name a").innerText;
-        cartItem.remove();
-        activate(DOM.cartContainer);
-        showMessage(`${formatName(name)} Removed from cart!`);
-    };
-
     // Newsletter submit handler
     const handleNewsletterForm = function (e) {
         e.preventDefault();
@@ -295,9 +283,10 @@ const Application = (function () {
 
     // Home page Showcase Arrow Right Handler
     const handleShowcaseArrowRight = function () {
-        if (appVariables.showcaseIndex < DOM.showcaseList.querySelectorAll(".showcase__item").length - 1) {
+        const numberOfImages = DOM.showcaseList.querySelectorAll(".showcase__item").length;
+        if (appVariables.showcaseIndex < numberOfImages - 1) {
             appVariables.showcaseIndex++;
-            DOM.showcaseList.style.transform = `translateX(-${appVariables.showcaseIndex * document.body.clientWidth}px)`;
+            DOM.showcaseList.style.transform = `translateX(-${(appVariables.showcaseIndex * 100) / numberOfImages}%)`;
             deactivate(DOM.showcaseIndicators[appVariables.showcaseIndex - 1]);
             activate(DOM.showcaseIndicators[appVariables.showcaseIndex]);
         }
@@ -305,31 +294,13 @@ const Application = (function () {
 
     // Home Page Showcase Arrow Left Handler
     const handleShowcaseArrowLeft = function () {
+        const numberOfImages = DOM.showcaseList.querySelectorAll(".showcase__item").length;
         if (appVariables.showcaseIndex > 0) {
             appVariables.showcaseIndex--;
-            DOM.showcaseList.style.transform = `translateX(-${appVariables.showcaseIndex * document.body.clientWidth}px)`;
+            DOM.showcaseList.style.transform = `translateX(-${(appVariables.showcaseIndex * 100) / numberOfImages}%)`;
             deactivate(DOM.showcaseIndicators[appVariables.showcaseIndex + 1]);
             activate(DOM.showcaseIndicators[appVariables.showcaseIndex]);
         }
-    };
-
-    // Reset showcase to first picture when resizing window
-    const checkShowcaseAppereance = function () {
-        if (appVariables.showcaseIndex !== 0 && DOM.showcaseList) {
-            appVariables.showcaseIndex = 0;
-            DOM.showcaseList.style.transform = `translateX(0)`;
-            DOM.showcaseIndicators.forEach((indicator) => {
-                deactivate(indicator);
-            });
-            activate(DOM.showcaseIndicators[0]);
-        }
-    };
-
-    // Subcategory Add to Cart handler
-    const handleSubcategoryPageForm = function (e) {
-        e.preventDefault();
-        const productName = formatName(this.parentElement.parentElement.querySelector(".product-item__name a").innerText);
-        showMessage(`${productName} added to cart!`);
     };
 
     // Subcategory page add filter
@@ -370,11 +341,46 @@ const Application = (function () {
         }
     };
 
+    // Product page description tabs handler
+    const handleDescriptionTab = function () {
+        const thisTabHeading = document.querySelector(this.dataset.tabHeading);
+        DOM.descriptionTabContents.forEach((tc) => {
+            deactivate(tc);
+        });
+        DOM.descriptionTabHeadings.forEach((th) => {
+            deactivate(th);
+        });
+        activate(this);
+        activate(thisTabHeading);
+    };
+
+    // Cart functionalities
+    // Subcategory Add to Cart handler
+    const handleSubcategoryPageAddToCart = function (e) {
+        e.preventDefault();
+        const productName = formatName(this.parentElement.parentElement.querySelector(".product-item__name a").innerText);
+        const productImage = this.parentElement.parentElement.parentElement.querySelector(".product-item__image img").src;
+        const productPrice = this.parentElement.parentElement.querySelector(".product-item__price strong").innerText.replace("$", "");
+        const productColor = "black";
+        const productQuantity = 1;
+        const fullProductDescription = {
+            name: productName,
+            image: productImage,
+            price: productPrice,
+            color: productColor,
+            quantity: productQuantity,
+        };
+        addItemToCart(JSON.stringify(fullProductDescription));
+        updateCart();
+        showMessage(`${productName} added to cart!`);
+    };
+
     // Product page Add to Cart handler
-    const handleProductPageForm = function (e) {
+    const handleProductPageAddToCart = function (e) {
         e.preventDefault();
         const productName = this.parentElement.querySelector(".product-info__heading span").innerText;
-        const price = this.parentElement.querySelector(".product-info__price strong").innerText.replace("$", "");
+        const productImage = document.querySelectorAll(".product-images__list-image")[0].src;
+        const price = parseFloat(this.parentElement.querySelector(".product-info__price strong").innerText.replace("$", ""));
         const selectedColor = getProductColor(Array.from(this.color));
         const quantity = this.qty.value;
         if (!selectedColor && quantity < 1) {
@@ -384,31 +390,117 @@ const Application = (function () {
         } else if (quantity < 1) {
             showMessage("Please select reasonable quantity", false);
         } else {
-            const successMessage = `${quantity} ${selectedColor} ${productName}${quantity > 1 ? "s" : ""} with total price of ${
+            const successMessage = `${quantity} ${selectedColor} ${productName}${quantity > 1 ? "s" : ""} with total price of ${(
                 quantity * price
-            } added to cart!`;
+            ).toFixed(2)} added to cart!`;
+            const fullProductDescription = {
+                name: productName,
+                image: productImage,
+                price: price,
+                color: selectedColor,
+                quantity: quantity,
+            };
+            addItemToCart(JSON.stringify(fullProductDescription));
+            updateCart();
             showMessage(successMessage);
         }
     };
 
-    // Product page description tabs handler
-    const handleDescriptionTab = function () {
-        const th = document.querySelector(this.dataset.tabHeading);
-        DOM.descriptionTabContents.forEach((tc) => {
-            deactivate(tc);
-        });
-        DOM.descriptionTabHeadings.forEach((t) => {
-            deactivate(t);
-        });
-        activate(this);
-        activate(th);
+    // Add item to cart
+    const addItemToCart = function (itemJSON) {
+        const item = JSON.parse(itemJSON);
+        const li = document.createElement("li");
+        li.classList.add("cart__product");
+        const itemHtml = `<div class="cart__product-wrapper">
+                <div class="cart__product-picture">
+                    <picture>
+                        <img src="${item.image}" alt="Cart item 1" />
+                    </picture>
+                </div>
+                <div class="cart__product-description">
+                    <h3 class="cart__product-description-name">
+                        <a href="./product.html">${item.name}</a>
+                    </h3>
+                    <dl>
+                        <div class="cart__product-description-feature">
+                            <dt>Color</dt>
+                            <dd>${item.color.charAt(0).toUpperCase() + item.color.slice(1)}</dd>
+                        </div>
+                        <div class="cart__product-description-feature">
+                            <dt>Price</dt>
+                            <dd class="cart__product-price">${item.price}$</dd>
+                        </div>
+                        <div class="cart__product-description-feature--input">
+                            <dt>Qty</dt>
+                            <dd>
+                                <form>
+                                    <fieldset>
+                                        <legend class="visually-hidden">Item qty control</legend>
+                                        <label for="qty" class="visually-hidden">Qty:</label>
+                                        <input name="qty" type="number" value="${item.quantity}" min="1" />
+                                    </fieldset>
+                                </form>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="cart__item-manager">
+                <button>
+                    <span class="visually-hidden">Edit</span>
+                    <i class="icon-edit"></i>
+                </button>
+                <button class="cart__remove-item">
+                    <span class="visually-hidden">Trash</span>
+                    <i class="icon-trash"></i>
+                </button>
+            </div>`;
+        li.innerHTML = itemHtml;
+        li.getElementsByTagName("input")[0].addEventListener("change", updateCart);
+        li.querySelector(".cart__remove-item").addEventListener("click", handleRemoveFromCartButton);
+        DOM.cartContainer.querySelector(".cart__products").appendChild(li);
+    };
+
+    // Remove from Cart handler
+    const handleRemoveFromCartButton = function () {
+        const cartItem = this.parentElement.parentElement;
+        const name = cartItem.querySelector(".cart__product-description-name a").innerText;
+        cartItem.remove();
+        updateCart();
+        showMessage(`${formatName(name)} Removed from cart!`);
+    };
+
+    // Update cart container values
+    const updateCart = function () {
+        const cartItems = Array.from(DOM.cartContainer.querySelectorAll(".cart__product"));
+        if (cartItems.length > 0) {
+            DOM.cartContainer.querySelector(".cart__empty").classList.add("visually-hidden");
+            DOM.cartContainer.querySelector(".cart__not-empty").classList.remove("visually-hidden");
+            let numberOfProductsText;
+            let totalNumberOfProducts = 0;
+            let totalPrice = 0;
+            cartItems.forEach((item) => {
+                const numberOfSameType = +item.getElementsByTagName("input")[0].value;
+                totalNumberOfProducts += numberOfSameType;
+                totalPrice += numberOfSameType * item.querySelector(".cart__product-price").innerText.replace("$", "");
+            });
+            totalNumberOfProducts > 1
+                ? (numberOfProductsText = `${totalNumberOfProducts} items in cart`)
+                : totalNumberOfProducts === 1
+                ? (numberOfProductsText = `${totalNumberOfProducts} item in cart`)
+                : (numberOfProductsText = "empty");
+            DOM.cartContainer.querySelector(".cart__num-of-items-text").innerText = numberOfProductsText;
+            DOM.cartContainer.querySelector(".cart__total-price").innerText = totalPrice.toFixed(2) + "$";
+        } else {
+            DOM.cartContainer.querySelector(".cart__empty").classList.remove("visually-hidden");
+            DOM.cartContainer.querySelector(".cart__not-empty").classList.add("visually-hidden");
+        }
     };
 
     return {
         // Public method
         initialize: function () {
-            handleWidescreen(window.matchMedia(`(min-width: ${appVariables.breakPoint}px)`));
-            checkShowcaseAppereance();
+            checkBrowserWidth(window.matchMedia(`(min-width: ${appVariables.breakPoint}px)`));
             setEventListeners();
         },
     };
